@@ -1,0 +1,79 @@
+.edit-profile{
+background-color: white;
+padding-bottom: 50px;
+color: $gray-800;
+
+h5{
+    text-align: center;
+    background-color: $primary;
+    padding: 10px;
+    color: $gray-200;
+}
+
+.basic-info-form, .detail-info-form{
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+}
+
+.info-input, textarea{
+    border: 1px solid $gray-300;
+}
+
+.info-input:focus, textarea:focus{
+    border: 1px solid $gray-300;
+}
+
+.value{
+    margin: 10px 0px;
+    font-weight: 800;
+}
+.label{
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+.info-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
+    color: $gray-500;
+    font-weight: 500;
+}
+
+.action-btns{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.save-btn{
+    margin-right: 50px;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: $primary;
+    color: $gray-200;
+    width: 100px;
+}
+
+.save-btn:hover{
+background-color: $gray-700;
+color: $gray-100;
+}
+
+.cancel-btn{
+    text-transform: uppercase;
+    background-color: $gray-300;
+    width: 100px;
+    padding: 10px;
+}
+
+@media(max-width: 1124px){
+    .basic-info-form, .detail-info-form{
+        width: 100%;
+    }
+}
+
+@media(max-width: 768px){
+    .select-label{
+        margin-bottom: -25px!important;
+    }
+}
+}

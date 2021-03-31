@@ -1,0 +1,28 @@
+
+export const professions = [
+    'Administrative / Human Resources',
+    'Advertising / Marketing / Public Relations',
+    'Architecture / Interior Design',
+    'Automotive / Aviation / Transportation',
+    'Communication / Telecom',
+    'Construction / Agriculture / Landscaping',
+    'Design / Visual / Graphic Arts',
+    'Education / Teaching / Child Care',
+    'Entertainment / Media / Dramatic Arts',
+    'Entrepreneurial / Start Up',
+    'Executive / General Manager / Consulting ',
+    'Fashion / Style / Modeling / Beauty',
+    'Financial / Accounting / Insurance / Real Estate',
+    'Government / Civil Service / Public Policy',
+    'Internet / E-Commerce Technology',
+    'Law / Legal / Judiciary',
+    'Law Enforcement / Military',
+    'Manufacturing / Warehousing / Shipping',
+    'Medical / Health / Social Services',
+    'Nonprofit / Volunteer / Activist',
+    'Publishing / Print Media',
+    'Restaurant / Food Service / Catering',
+    'Technical Science / Engineering',
+    'Student',
+    'Travel / Hospitality'
+];

@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,300&display=swap');
+@import './variables';
+@import './home';
+@import './dashboard';
+@import './profile_header';
+@import './profile_sidebar';
+@import './profile_main';
+@import './user_card';
+@import './messages';
+@import './login';
+@import './edit_profile';
+
+
+
+
+
+
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  background-color: $gray-200!important;
+  color:  $gray-800;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: 'OPen sans', 'Times New Roman', Times, serif;
+}
+
+ul{
+  list-style-type: none;
+}
+
+input[type=text],
+input[type=number],
+input[type=password],
+input[type=email],
+textarea
+{
+  appearance: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+textarea,
+button:focus{
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
+
+button{
+  background-color: inherit;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  border: none;
+  text-transform: uppercase;
+}
+
+ 
+
+a:hover{
+  color: $blue!important;
+}
+
+.profile-main-content{
+  margin-left: 300px;
+  padding: 15px;
+  margin-top: 100px;
+
+  .row{
+    padding: 0!important;
+  }
+}
+
+.select-box{
+  color: black;
+}
+
+.error{
+  color:red;
+  font-size: small;
+}
+
+.errors{
+  display:flex;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.error-content{
+    border-radius: 30px;
+    text-align: center;
+    background: #F8F8FF;
+    z-index: 9999;
+    padding: 15px;
+    color: brown;
+}
+.btn{
+    border-radius: 50px;
+}
+
+.spin-loader {
+  display:flex;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+@media(max-width: 768px){
+  .profile-main-content{
+    margin-left: initial;
+  }
+}

@@ -1,0 +1,92 @@
+/*
+header styles
+*/
+.admin-header-container{
+height: 50px;
+padding-top: 10px;
+font-size: 18px;
+ .dater-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.dater-list >li.dater-list-item:last-child{
+    margin-left: auto;
+    margin-right: initial;
+}
+
+.dater-list >li.dater-list-item{
+    margin-right: 100px;
+}
+.profile-dropdown{
+position: relative;
+}
+
+.profile-dropdown ul{
+    position: absolute;
+    top: 40px;
+    width: 200px;
+    background-color: white;
+    line-height: 30px;
+    font-size: 18px;
+    color: $gray-800;
+    display: none;
+    height: 100px;
+    right: 10px;
+    transition: height 0.5s;
+}
+
+.profile-dropdown .show-profile-dropdown{
+    display: block;
+}
+.profile-dropdown ul li{
+    margin-left: -30px;
+    margin-top: 10px;
+}
+
+.dater-list .sidebar-toggle{
+    display: none;
+}
+
+@media(max-width: 768px){
+    .dater-list .sidebar-toggle{
+        display: block;
+    }
+
+}
+}
+/*
+sidebar styles
+*/
+.admin-sidebar{
+    .admin-sidebar-items{
+    position: fixed;
+    top: 50px;
+    bottom: 0px;
+    left: 0px;
+    width: 200px;
+    background-image: url("/admin-ing.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    color: $gray-200;
+    padding: 10px;
+    transition: all 0.4s;
+    }
+
+    @media(max-width: 768px){
+        .admin-sidebar-items{
+            left: -200px;
+        } 
+        
+        .show-sidebar{
+            left: 0px;
+        }
+    }
+
+    a {
+        color: $gray-900!important;
+      }  
+}
+
+

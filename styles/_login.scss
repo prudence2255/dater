@@ -1,0 +1,48 @@
+
+
+.show-login-modal{
+    display: block;
+
+    .w3-modal-content{
+        color: $gray-800;
+        max-width: 400px;
+        min-width: 300px;
+    }
+
+    input{
+        border: 1px solid $gray-300!important;
+    }
+
+    .action-btns{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .login-btn{
+        background-color: $yellow;
+        color: $gray-900;
+        border-radius: 5px;
+        padding: 6px;
+        width: 100px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    .login-btn:hover{
+        background-color: $gray-700;
+        color: $gray-100;
+    }
+    .cancel-btn{
+        background-color: $gray-300;
+        color: $gray-800;
+        border-radius: 6px;
+        padding: 5px;
+        width: 100px;
+        text-transform: uppercase;
+    }
+
+    .cancel-btn:hover{
+        color: $gray-800!important;
+    }
+}

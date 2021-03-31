@@ -1,0 +1,93 @@
+.user-sidebar{
+   .user-sidebar-items{
+    position: fixed;
+    z-index: 1;
+    bottom: 0px;
+    left: 0px;
+    top: 60px;
+    width: 280px;
+    transition: all .4s;
+    background-image: url("/profile-sidebar-img.jpg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+   
+   }
+
+   .user-img{
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 150px;
+    background-color: white;
+   }
+
+   .profile-options{
+    border-top: 3px solid white;
+    background-color: rgba(0,0,0,0.5);
+    color: $gray-200;
+    font-size: 18px;
+    height: 100%;
+    overflow: scroll;
+    }
+
+    .profile-options::-webkit-scrollbar{
+        width: 1px;
+        background-color: inherit;
+      
+        }
+        
+        .profile-options::-webkit-scrollbar-thumb{
+            background-color: inherit;
+            border-radius: 0 8px 8px 0;
+        }
+
+.profile-options ul{
+    margin: 0!important;
+    padding-left: 0!important;
+}
+
+.profile-options ul li{
+    margin: 0!important;
+    padding: 15px;
+}
+.profile-options  ul li a{
+    color: $gray-200;
+    display: flex;
+    flex-direction: row;
+   line-height: 30px;
+}
+
+.profile-options  ul li:hover{
+    background-color: $gray-500;
+    
+}
+
+.profile-options  ul li a:hover{
+    color: $gray-200;
+    text-decoration: none;
+}
+
+.profile-options  ul li a span:last-child{
+    margin-left: auto;
+    font-size: 12px;
+    background-color: $primary;
+    padding: 0px 7px;
+    border-radius: 5px;
+}
+
+.profile-options  ul li a span:first-child{
+margin-right: 30px;
+
+
+}
+   @media(max-width: 768px){
+    .user-sidebar-items{
+        left: -300px;
+       }
+    
+    .show-user-sidebar{
+        left: 0px;
+    } 
+ }
+}
