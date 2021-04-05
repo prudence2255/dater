@@ -10,6 +10,7 @@
 @import './messages';
 @import './login';
 @import './edit_profile';
+@import './image_upload';
 
 
 
@@ -128,6 +129,14 @@ a:hover{
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.w3-modal{
+  overflow-x: hidden;
+}
+
+.card-loader-flex{
+  display: flex;
+  //flex-direction: row;
+}
 
 @media(max-width: 768px){
   .profile-main-content{

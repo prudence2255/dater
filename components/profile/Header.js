@@ -15,7 +15,7 @@ const {errors} = A.useSelector(A.errorsSelector);
     const router = useRouter();
     const onLogout = () => {
         setLoading(true);
-        dispatch(A.logout({url: '/api/client-logout'}))
+        dispatch(A.logout({url: '/api/client-logout', cookie: cookies.get("token")}))
         .then(A.unwrapResult).then(res => {
             setLoading(false);
             if(!cookies.get("token")){

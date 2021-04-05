@@ -8,6 +8,7 @@
     width: 100%;
      z-index: 1;
      padding-top: 10px;
+     border-bottom: 2px solid $primary;
 
     .user-header nav .dater-list{
         display: flex;
@@ -78,6 +79,7 @@
         .user-avatar{
             border-radius: 50%;
         }
+        
         @media(max-width: 768px){
             .sidebar-toggle{
                 display: block;

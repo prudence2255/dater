@@ -3,26 +3,40 @@ import * as http from 'components/Imports';
 
 
 /**
- * logs a user in
+ * get threads
  */
 
-export const login = createAsyncThunk(
-    'users/login',
+export const getThreads = createAsyncThunk(
+    'messages/getThreads',
       async (data, thunk) => {
-        return http.publicPostHttp(data, thunk);
+        return http.getHttp(data, thunk);
     }
   );
 
+
   /**
- * registers a new user
+ * adds a new thread
  */
 
-export const register = createAsyncThunk(
-  'users/register',
+export const addThread = createAsyncThunk(
+  'messages/addThread',
     async (data, thunk) => {
       return http.postHttp(data, thunk);
   }
 );
+
+
+/**
+ * updates a thread
+ */
+
+ export const updateThread = createAsyncThunk(
+  'messages/updateThread',
+    async (data, thunk) => {
+      return http.putHttp(data, thunk);
+  }
+);
+
 
 /**
  * logs a new user out

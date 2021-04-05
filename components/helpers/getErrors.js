@@ -5,12 +5,11 @@
  */
 
  const getErrors = (error) => {
-//console.log(error.response)
+   console.log(error.response)
     if(error.response){
-      let err = Object.values(error.response?.data?.errors)?.flat();
-      if(Array.isArray(err) && err?.length > 0){
+      if(error.response?.data?.errors){
         return {
-          error: error.response.data.errors.flat(), 
+          error: Object.values(error.response?.data?.errors).flat(), 
           code: error.response.status
         }
      }else if(error.response.status === 401){

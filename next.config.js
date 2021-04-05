@@ -17,5 +17,9 @@ webpack: config => {
     config.resolve.alias['store'] = path.join(__dirname, 'store')
     config.resolve.alias['styles'] = path.join(__dirname, 'styles')
     return config
-}   
+},
+
+images: {
+    domains: ['localhost'],
+  },   
 }

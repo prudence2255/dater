@@ -12,7 +12,6 @@ if(typeof window !== 'undefined'){
 AOS.init();
 }
 Router.events.on('routeChangeStart', (url) => {
-  console.log(`Loading: ${url}`)
   NProgress.start()
 })
 Router.events.on('routeChangeComplete', () => NProgress.done())

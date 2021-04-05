@@ -1,34 +1,54 @@
-import { useForm, Controller } from "react-hook-form";
+import React from 'react';
+import { useForm} from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from "yup";
 import * as Form from 'components/formFields';
-import Select from 'react-select';
 import * as imports from 'components/Imports';
 import {professions} from 'store/data/professions';
 
 
 const schema = yup.object().shape({
-    first_name: yup.string().required(),
-    last_name: yup.string().required(),
-    gender: yup.string().required(),
-    age: yup.number().required(),
-    country: yup.string().required(),
-    city: yup.string().required(),
+        self_summary: yup.string(),
+        want: yup.string(),
+        interest: yup.string(),
+        status: yup.string(),
+        education: yup.string(),
+        profession: yup.string(),
+        religion: yup.string(),
+        f_music: yup.string(),
+        f_movies: yup.string(),
+        f_shows: yup.string(),
+        f_books: yup.string(),
+        height: yup.string(),
+         eye_color: yup.string(),
+         hair_color: yup.string(),
       });
 
 export default function DetailInfoForm() {
+    const {authUser} = imports.useSelector(imports.usersSelector);
+    const [loading, setLoading] = React.useState();
 
-  const {register, reset, handleSubmit, errors, control } = useForm({
+    const cookies = new imports.Cookies();
+  const {register, handleSubmit, errors, control } = useForm({
         resolver: yupResolver(schema),   
+        });
+
+const dispatch = imports.useDispatch();
+    const submit = (data) => {
+        setLoading(true);
+        dispatch(imports.addUserMeta({url: `/api/update-meta`, body: data,
+         cookie: cookies.get("token")}))
+        .then(imports.unwrapResult).then(() => {
+            setLoading(false);
+            imports.notify.show('Saved successfully', 'success', 2000)
         })
-    
-  const submit = (data) => {
-      console.log(data);
-      reset({});
-  }      
+        .catch(() => setLoading(false));
+    }      
+        
 
     return (
         <div className="detail-info-form">
+         <imports.SpinLoader loading={loading}/>
             <div className="detail-info">
                 <form onSubmit={handleSubmit(submit)}>
                 <div className="row">
@@ -40,6 +60,7 @@ export default function DetailInfoForm() {
                      <Form.TextArea 
                     errors={errors}
                     name="self_summary"
+                    defaultValue={authUser?.meta?.self_summary ?? ''}
                     type="text"
                      ref={register}
                      placeholder="Describe yourself in few words"
@@ -57,7 +78,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="want"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.want ?? ''}
                 options={[
                     'Friendship', 'Dating',
                     'Marriage', 'Network'
@@ -78,7 +99,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="interest"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.interest ?? ''}
                 options={[
                     'Women', 'Men',
                     'Both'
@@ -99,7 +120,7 @@ export default function DetailInfoForm() {
                      <Form.SelectOption 
                     errors={errors}
                      name="status"
-                    defaultValue={null}
+                    defaultValue={authUser?.meta?.status ?? ''}
                     options={[
                     'Single',
                     'In a relationship',
@@ -122,7 +143,7 @@ export default function DetailInfoForm() {
                     <Form.SelectOption 
                      errors={errors}
                     name="education"
-                    defaultValue={null}
+                    defaultValue={authUser?.meta?.education ?? ''}
                 options={[
                     'Elementary school',
                     'High school',
@@ -147,7 +168,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="profession"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.profession ?? ''}
                 options={professions}
                 control={control}
                 instanceId="profession_id"
@@ -165,7 +186,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="religion"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.religion ?? ''}
                 options={[
                     'Christian',
                     'Muslim',
@@ -188,7 +209,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="height"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.height ?? ''}
                 options={[
                     '< 4\'6"(137cm)', '4\'10"(147cm)',
                     '5\'2"(157cm)', '5\'6"(168cm)',
@@ -211,7 +232,7 @@ export default function DetailInfoForm() {
                 <Form.SelectOption 
                 errors={errors}
                 name="eye_color"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.eye_color ?? ''}
                 options={[
                     'Blue', 'Brown', 'Gray', 'Green',
                     'Hazel', 'Black'
@@ -231,7 +252,7 @@ export default function DetailInfoForm() {
             <Form.SelectOption 
                 errors={errors}
                 name="hair_color"
-                defaultValue={null}
+                defaultValue={authUser?.meta?.hair_color ?? ''}
                 options={[
                     'Blond', 'Dark blond', 'Light brown',
                     'Dark brown', 'Red', 'Gray',
@@ -252,6 +273,7 @@ export default function DetailInfoForm() {
                 <Form.TextArea 
                 errors={errors}
                 name="f_music"
+                defaultValue={authUser?.meta?.f_music ?? ''}
                 type="text"
                 ref={register}
                 />
@@ -261,13 +283,14 @@ export default function DetailInfoForm() {
                 </div>
                 <div className="row">
                     <div className="col-md-4">
-                    <div className="label">Your favorite </div>
+                    <div className="label">Your favorite movies</div>
                     </div>
                     <div className="col-md-6">
                     <div className="value">
                 <Form.TextArea 
                 errors={errors}
                 name="f_shows"
+                defaultValue={authUser?.meta?.f_shows ?? ''}
                 type="text"
                 ref={register}
                 />
@@ -285,6 +308,7 @@ export default function DetailInfoForm() {
                 <Form.TextArea 
                 errors={errors}
                 name="f_movies"
+                defaultValue={authUser?.meta?.f_movies ?? ''}
                 type="text"
                 ref={register}
                 />
@@ -300,6 +324,7 @@ export default function DetailInfoForm() {
                 <Form.TextArea 
                 errors={errors}
                 name="f_books"
+                defaultValue={authUser?.meta?.f_books ?? ''}
                 type="text"
                 ref={register}
                 />
@@ -311,7 +336,7 @@ export default function DetailInfoForm() {
                         <div className="col-md-6">
                     <div className="action-btns">
                         <button className="save-btn">Save</button>
-                        <button className="cancel-btn">Cancel</button>
+                        <a className="cancel-btn btn">Cancel</a>
                     </div>
                     </div>
                     </div>

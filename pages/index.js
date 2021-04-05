@@ -12,10 +12,12 @@ import Notifications from 'react-notify-toast';
 import { useRouter } from 'next/router';
 
 
+
 const index = () => {
   const [loginModal, setLoginModal] = React.useState();
   const {errors} = imports.useSelector(imports.errorsSelector);
   const {loading} = imports.useSelector(imports.loadersSelector);
+ 
 
   const cookies = new imports.Cookies();
   const router = useRouter();

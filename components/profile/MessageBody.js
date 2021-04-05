@@ -1,36 +1,34 @@
 import React from 'react';
-import { LeftAngleIcon } from 'components/Icons';
+import * as Imports from 'components/Imports';
+import Files from 'components/profile/File';
 
 
-export default function MessageBody({thread, setShowMessages}) {
+export default function MessageBody({thread}) {
 
+    const {authUser} = Imports.useSelector(Imports.usersSelector);
     if(!thread) return <div>Loading...</div>
-    let messages;
-    if(thread.messages){
-         messages = thread?.messages?.map((message, i) => (
-            <p key={i} className={`message-text ${message.user_id === 1 ? 'me' : 'them'}`}>
+   
+    const messages = thread?.messages?.map((message, i) => {
+             if(message?.type !== 'text'){
+           return (
+             <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>
+            <Files url={message?.file_url} file={{type: message?.type}}/>
+             </div>
+             )    
+         }
+        else{
+            return (
+             <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>
                 {message.body}
-            </p>
-        ))
-    }else{
-        messages = <p className="message-text">{thread.message}</p>
-    }
+             </div>
+                )
+            }
+         })
+    
 
 
     return (
         <div>
-        <div className="message-header">
-            <div>
-                <button onClick={() => setShowMessages(false)}>
-                    <LeftAngleIcon size="30"
-                       
-                    />
-                </button>
-            </div>
-            <div>
-                hello
-            </div>
-        </div>
         {messages}
         </div>
     )

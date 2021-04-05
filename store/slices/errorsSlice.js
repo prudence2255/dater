@@ -13,7 +13,6 @@ const errorsSlice = createSlice({
     reducers: {
     setErrors: (state, action) => {
              state.errors = action.payload.error;
-             console.log(action.payload)
         },
      clearErrors: (state) => {
             state.errors = null;

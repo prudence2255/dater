@@ -1,3 +1,4 @@
+import React from 'react';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from "yup";
@@ -16,22 +17,33 @@ const schema = yup.object().shape({
       });
 
 export default function BasicInfoForm() {
-    const {countries, cities} = imports.useSelector(imports.usersSelector);
-const dispatch = imports.useDispatch();
+    const {countries, cities, authUser} = imports.useSelector(imports.usersSelector);
+    const [loading, setLoading] = React.useState();
+    const dispatch = imports.useDispatch();
+
   const handleCities= (e) => {
     dispatch(imports.setCities(e));
   }
+
+  const cookies = new imports.Cookies();
   const {register, reset, handleSubmit, errors, control } = useForm({
         resolver: yupResolver(schema),   
         })
     
   const submit = (data) => {
-      console.log(data);
-      reset({});
+      setLoading(true);
+      dispatch(imports.updateUser({url: `/api/update-auth-user`, body: data,
+       cookie: cookies.get("token")}))
+      .then(imports.unwrapResult).then(() => {
+          setLoading(false)
+          imports.notify.show('Saved successfully', 'success', 2000)
+      })
+      .catch(() => setLoading(false));
   }      
 
     return (
         <div className="basic-info-form">
+        <imports.SpinLoader loading={loading}/>
             <div className="basic-info">
                 <form onSubmit={handleSubmit(submit)}>
                 <div className="row">
@@ -47,6 +59,7 @@ const dispatch = imports.useDispatch();
                 placeholder="First Name"
                 ref={register}
                 c_class="info-input"
+                defaultValue={authUser?.first_name}
                 />
                 </div>
                 </div>
@@ -64,6 +77,7 @@ const dispatch = imports.useDispatch();
                 placeholder="Last name"
                 ref={register}
                 c_class="info-input"
+                defaultValue={authUser?.last_name}
                 />
                 </div> 
                 </div>
@@ -77,7 +91,7 @@ const dispatch = imports.useDispatch();
                     <Form.SelectOption 
                 errors={errors}
                 name="gender"
-                defaultValue={null}
+                defaultValue={authUser?.gender}
                 options={['Male', 'Female']}
                 control={control}
                 instanceId="gender_info_id"
@@ -95,6 +109,7 @@ const dispatch = imports.useDispatch();
                     <Form.Input 
                      errors={errors}
                      name="age"
+                     defaultValue={authUser?.age}
                     type="number"
                     placeholder="How old are you?"
                     ref={register}
@@ -111,7 +126,7 @@ const dispatch = imports.useDispatch();
                     <div className="value">
                 <Controller
                 control={control}
-                defaultValue={null}
+                defaultValue={authUser?.country}
                 name="country"
                 render={({onChange}) => (
                 <Select
@@ -127,7 +142,7 @@ const dispatch = imports.useDispatch();
                 instanceId="country_info_id"
                 isSearchable
                 placeholder="Search countries..."
-                defaultValue={null}
+                defaultValue={{label: authUser?.country, value: authUser?.country}}
                 className="select-box"
                 />
                 
@@ -146,7 +161,7 @@ const dispatch = imports.useDispatch();
                     <div className="value">
                 <Controller
                     control={control}
-                    defaultValue={null}
+                    defaultValue={authUser?.city}
                     name="city"
                     render={({onChange}) => (
                     <Select
@@ -161,7 +176,7 @@ const dispatch = imports.useDispatch();
                     instanceId="city_info_id"
                     isSearchable
                     placeholder="Search cities..."
-                    defaultValue={null}
+                    defaultValue={{label: authUser?.city, value: authUser?.city}}
                     isDisabled={cities?.length > 0 ? false : true}
                     className="select-box"
                 />
@@ -176,7 +191,7 @@ const dispatch = imports.useDispatch();
                         <div className="col-md-6">
                     <div className="action-btns">
                         <button className="save-btn">Save</button>
-                        <button className="cancel-btn">Cancel</button>
+                        <a className="cancel-btn btn">Cancel</a>
                     </div>
                     </div>
                     </div>

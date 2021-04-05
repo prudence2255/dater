@@ -9,19 +9,30 @@ import {errorsSelector} from 'store/slices/errorsSlice';
 import Auth from 'components/profile/Auth';
 import getErrors from 'components/helpers/getErrors';
 import { loadersSelector, statusSucceeded, startLoading, endLoading} from 'store/slices/loadersSlice';
- import {postHttp, getHttp, putHttp, deleteHttp, addToken} from 'components/helpers/apiClient';
+ import {postHttp, getHttp, putHttp, deleteHttp, publicPostHttp, publicGetHttp} from 'components/helpers/apiClient';
  import {setErrors} from 'store/slices/errorsSlice';
  import Cookies from 'universal-cookie';
 import {SpinLoader} from 'components/Loaders';
  import {login, register, authUser, logout, getUser
     , getUsers, updateUser, deleteUser, addUserMeta, 
-    photoUpload, uploadProfilePic} from 'store/actions/userActions';
+    photoUpload, uploadProfilePic, getPhotos} from 'store/actions/userActions';
 import ShowError from 'components/Error';
 import { unwrapResult } from '@reduxjs/toolkit';
 import Notifications, {notify} from 'react-notify-toast';
+import {useRouter} from 'next/router';
+import {wrapper} from 'store/store';
+import UserCard from 'components/profile/UserCard';
+import {getThreads, addThread, updateThread} from 'store/actions/messageActions';
 
 
 export {
+    getThreads,
+    addThread,
+    updateThread,
+    UserCard,
+    getPhotos,
+    wrapper,
+    useRouter,
     Notifications,
     notify,
     unwrapResult,
@@ -35,7 +46,8 @@ export {
     getErrors,
     getHttp,
     putHttp,
-    addToken,
+   publicGetHttp,
+   publicPostHttp,
     deleteHttp,
     setErrors,
     AdminLayout,

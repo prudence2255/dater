@@ -1,27 +1,26 @@
 
 .messages{
-    .divider{
-        width: 100%;
-        height: 2px;
-        background-color: $primary;
-        position: fixed;
-        z-index: 100;
-        top: 60px;
-    }
 
     .message-header{
-        height: 55px;
-        border-bottom: 1px solid $gray-500;
+        height: 50px;
         padding: 5px 0px;
         background-color: white;
         position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 999;
+        top: 60px;
+        right: 30px;
+        left: 330px;
+         z-index: 1;
+        border-bottom: 3px solid $primary;
         display: none;
-       
         }
+
+        .show-message-header{
+            display: flex;
+        }
+
+    .message-header button{
+          display: none;
+      }
 
     .messages-container{
         display: flex;
@@ -39,7 +38,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         background-color: white;
-        padding-top: 50px;
+        padding-top: 70px;
         padding-bottom: 100px;
     }
 
@@ -53,13 +52,12 @@
         overflow-x: hidden;
         background-color: white;
         right: 30px;
-        padding-top: 50px;
-        padding-bottom: 100pc;
+        padding-top: 70px;
+        padding-bottom: 100px;
     }
 
     .message-card{
         display: flex;
-        justify-content: space-between;
         flex-direction: row;
         padding: 10px;
         border-bottom: 1px solid $gray-400;
@@ -73,6 +71,30 @@
     .message-card-img{
         border-radius: 50%;
     }
+
+   .message-card .no-read{
+        font-weight: bold;
+    }
+
+   .message-card .last-message-el{
+        margin: 0px  15px;
+    }
+
+    .message-card .time{
+        position: absolute;
+        right: 10px;
+    }
+   
+    .message-card .first-name{
+        font-size: 18px;
+        font-weight: bold;
+    }
+.message-card .count{
+    padding: 0 5px;
+    background-color: $blue;
+    border-radius: 50%;
+    color: white;
+}
 
    .message-list::-webkit-scrollbar, .message-body::-webkit-scrollbar{
         width: 5px;
@@ -88,28 +110,108 @@
       .message-text{
           position: relative;
          background-color: red;
+         margin: 10px 0px;
       }
       
-            .me{
-         text-align: right;
+     .me{
+   text-align: right;
         
+     }
+
+  .them{
+         text-align: left;
+           
+      }
+       
+    .active-thread{
+            background-color: $gray-200; 
+     }
+
+
+        .message-input-container{
+            position: fixed;
+            bottom: 0;
+            right: 30px;
+            padding: 10px;
+            display: none;
+            background-color: $gray-300;
+            left: 681px;
+            z-index: 999;
         }
 
-        .them{
-            text-align: left;
-           
+        .show-message-input{
+            display: block;
+         }
+
+        .message-input-contents{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            text-align: center;
         }
+
+        .message-input-contents div{
+            margin: 0px 10px;
+        }
+
+        .message-input-box{
+            width: 80%
+        }
+
+        .message-input{
+            min-height: 40px;
+            width: 100%; 
+            margin: 0px 15px;
+            max-height: 100px;
+            border-radius: 50px;
+            background-color: white;
+            overflow: hidden;
+            padding: 10px;
+            resize: none;
+            display: block;
+
+        }
+
+        .message-input:focus{
+            outline: none;
+        }
+
+        .send-btn{
+            color: $primary;
+        }
+
+        .file-btn{
+            transform: rotate(90deg);
+        }
+
+        .emoji-box{
+            display: none;
+            z-index: 3;
+        }
+
+        .show-emoji-box{
+            display: block;
+            position: absolute;
+            bottom: 80px;
+            z-index: 300;
+        }
+
        
-        .active-thread{
-            background-color: $gray-200; 
-        }
+
         @media(max-width: 1124px){
-            .show-message-modal .message-header{
-              //display: block;
-              display: flex;
-              justify-content: flex-start;
-              flex-direction: row;
-              align-items: center;
+            .show-message-header{
+                display: flex;
+                height: 60px;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 200;
+            }
+            
+
+            .show-message-header button{
+                display: flex;
             }
 
             .message-body{
@@ -118,21 +220,34 @@
 
             .show-message-modal{
                 display: block;
-                z-index: 100;
+                z-index: 1;
                 top: 30px;
                 bottom: 0;
-                right: 0;
-                left: 0;
+                right: 20px;
+                left: 20px;
+                padding-top: 70px;
             }
+
+            .show-message-input{
+                left: 20px;
+                right: 20px;
+             }
+
+             .message-input{
+                min-height: 30px;
+            } 
+
+           
         }
 
         @media(max-width: 768px){
             .message-list{ 
                left: auto;
                right: auto;
+               padding-top: 70px
             }
 
-           
+         
         }
 
         

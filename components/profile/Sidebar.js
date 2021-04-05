@@ -4,24 +4,39 @@ import * as imports from 'components/Imports';
 import { UserIcon,
     SettingsIcon, MessageIcon,
     NotificationIcon, ViewIcon,
-    LikeIcon, RequestsIcon 
+    LikeIcon, RequestsIcon,
+    FriendsIcon 
 } from 'components/Icons';
 
 export default function SideBar({show, target}) {
-   
+   const {authUser} = imports.useSelector(imports.usersSelector);
+
     return (
         <div className="user-sidebar">
         <div className={`user-sidebar-items ${show && target === 'toggle-sidebar' ? 'show-user-sidebar' : '' }`}>
         <div className="user-img" style={{
-            backgroundImage: `url(/male-avatar.png)`
+            backgroundImage: `url(${authUser?.profile_pictures?.photos?.xsmall ?? '/male-avatar.png'})`
         }}>
 
         </div>
         <div className="profile-options">
            <nav>
                <ul>
+               <li>
+                 <Link href={`/profile`}>
+                <a>
+               <span>
+               <FriendsIcon />
+               </span>
+               <span>
+               Meet Friends
+               </span>
+               <span></span>
+                </a>
+                 </Link>
+                   </li>
                 <li>
-                 <Link href="/profile">
+                 <Link href={`/profile/[username]`} as={`/profile/${authUser?.username}`}>
                 <a>
                <span>
                <UserIcon />
@@ -29,7 +44,7 @@ export default function SideBar({show, target}) {
                <span>
                View profile
                </span>
-               <span>7</span>
+               <span></span>
                 </a>
                  </Link>
                    </li>
@@ -44,7 +59,7 @@ export default function SideBar({show, target}) {
                 Account Settings
                 </span>
                 
-               <span>7</span>
+               <span></span>
                 </a>
                 </Link>
                    </li>
@@ -58,7 +73,7 @@ export default function SideBar({show, target}) {
               <span>
               Messages
               </span>
-              <span>7</span>
+              <span className="count">{authUser?.new_messages ?? 0}</span>
                 </a>
                  
                     </Link>
@@ -73,7 +88,7 @@ export default function SideBar({show, target}) {
                <span>
                Notifications
                </span>
-               <span>7</span>
+               <span className="count">{authUser?.new_notifications ?? 0}</span>
                </a>
                
                       </Link>
@@ -88,7 +103,7 @@ export default function SideBar({show, target}) {
                <span>
                Views
                </span>
-                <span>7</span>
+                <span className="count">{authUser?.new_views ?? 0}</span>
                 </a>
                
                     </Link>
@@ -103,7 +118,7 @@ export default function SideBar({show, target}) {
                     <span>
                     Likes
                     </span>
-                    <span>7</span>
+                    <span className="count">{authUser?.new_likes ?? 0}</span>
                     </a>
                    
                     </Link>
@@ -118,7 +133,7 @@ export default function SideBar({show, target}) {
                 <span>
                 Friend Requests
                 </span>
-                <span>7</span>
+                <span className="count">{authUser?.new_requests ?? 0}</span>
                  </a>
                     </Link>
                    </li>

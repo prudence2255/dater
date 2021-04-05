@@ -92,7 +92,7 @@ const handleCities= (e) => {
                               errors={errors}
                               name="gender"
                               title="Gender"
-                              defaultValue={null}
+                              defaultValue={''}
                               options={['Male', 'Female']}
                               control={control}
                               instanceId="gender_id"
@@ -114,7 +114,7 @@ const handleCities= (e) => {
                               <label htmlFor="country" className="label">Country</label>
                             <Controller
                             control={control}
-                            defaultValue={null}
+                            defaultValue={''}
                             name="country"
                             render={({onChange}) => (
                             <Select
@@ -130,7 +130,7 @@ const handleCities= (e) => {
                             instanceId="country_id"
                             isSearchable
                             placeholder="Search countries..."
-                            defaultValue={null}
+                            defaultValue={''}
                             className="select-box"
                           />
                           
@@ -142,7 +142,7 @@ const handleCities= (e) => {
                               <label htmlFor="city" className="label">City</label>
                             <Controller
                               control={control}
-                              defaultValue={null}
+                              defaultValue={''}
                               name="city"
                               render={({onChange}) => (
                               <Select
@@ -157,7 +157,7 @@ const handleCities= (e) => {
                               instanceId="city_id"
                               isSearchable
                               placeholder="Search cities..."
-                              defaultValue={null}
+                              defaultValue={''}
                               isDisabled={cities?.length > 0 ? false : true}
                               className="select-box"
                             />

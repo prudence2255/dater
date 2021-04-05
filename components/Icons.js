@@ -1,16 +1,67 @@
 import React from 'react';
 import {FaUserAlt, FaBars, FaPowerOff,
-    FaMobileAlt, FaMoneyCheckAlt,
+    FaMobileAlt, FaMoneyCheckAlt, FaCamera,
     FaUserFriends, FaEnvelope, FaHeart, FaAngleLeft
 } from 'react-icons/fa';
 
-import {IoMdNotifications, IoIosSettings,
+import {IoMdNotifications, IoIosSettings, IoMdSend
     } from 'react-icons/io';
-import {MdMessage, MdErrorOutline} from 'react-icons/md';
+import {MdMessage, MdErrorOutline, MdFileUpload, MdAttachFile} from 'react-icons/md';
 import {BsEyeFill, BsInfoCircle} from 'react-icons/bs';
-import {BiEdit} from 'react-icons/bi';
+import {BiEdit } from 'react-icons/bi';
+import {GiThreeFriends} from 'react-icons/gi';
+import {GrEmoji} from 'react-icons/gr';
 
 
+
+export const SendIcon = () => {
+    return (
+        <>
+    <IoMdSend size="25"/>
+        </>
+    )
+}
+
+export const EmojiIcon = () => {
+    return (
+        <>
+    <GrEmoji size="25"/>
+        </>
+    )
+}
+
+
+export const FileIcon = () => {
+    return (
+        <>
+    <MdAttachFile size="25"/>
+        </>
+    )
+}
+
+export const UploadIcon = () => {
+    return (
+        <>
+    <MdFileUpload size="20"/>
+        </>
+    )
+}
+
+export const FriendsIcon = () => {
+    return (
+        <>
+    <GiThreeFriends />
+        </>
+    )
+}
+
+export const CameraIcon = () => {
+  return (
+      <>
+  <FaCamera />
+      </>
+  )
+}
 
 export const LogoutIcon = () => {
     return(

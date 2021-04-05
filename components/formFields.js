@@ -60,7 +60,8 @@ const TextArea = forwardRef(({name, title, c_class, defaultValue, placeholder, e
             name={name} type="text"
             placeholder={placeholder}
             required={required}
-            rows="3" ref={ref} defaultValue={defaultValue}>
+            defaultValue={defaultValue}
+            rows="3" ref={ref} >
          
            </textarea>
             <span className="error">{errors[name]?.message}</span>
@@ -97,14 +98,14 @@ const CheckBox = forwardRef(({name, title, c_class, errors, options, required, d
 })
 
 const SelectOption = ({name, title, errors, control,
-                     options, instanceId, placeholder, defaultValue1, defaultValue2}) => {       
+                     options, instanceId, placeholder, defaultValue}) => {       
     return(
         <>
         <div className="form-field select-option">
         <label className="label">{title}</label><br />
         <Controller
             control={control}
-            defaultValue={defaultValue1}
+            defaultValue={defaultValue}
             name={name}
             render={({onChange}) => (
             <Select
@@ -118,7 +119,7 @@ const SelectOption = ({name, title, errors, control,
             name={name}
             instanceId={instanceId}
             placeholder={placeholder}
-            defaultValue={defaultValue2}
+            defaultValue={{label: defaultValue, value: defaultValue}}
             className="select-box"
           />
           
