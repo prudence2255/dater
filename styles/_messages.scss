@@ -7,14 +7,14 @@
         background-color: white;
         position: fixed;
         top: 60px;
-        right: 30px;
+        right: 0px;
         left: 330px;
          z-index: 1;
         border-bottom: 3px solid $primary;
         display: none;
         }
 
-        .show-message-header{
+     .show-message-header{
             display: flex;
         }
 
@@ -34,12 +34,12 @@
         height: 100%;
         position: fixed;
         left: 330px;
-        top: 60px;
+        top: 50px;
         overflow-y: scroll;
         overflow-x: hidden;
         background-color: white;
         padding-top: 70px;
-        padding-bottom: 100px;
+        padding-bottom: 150px;
     }
 
     .message-body{
@@ -53,7 +53,7 @@
         background-color: white;
         right: 30px;
         padding-top: 70px;
-        padding-bottom: 100px;
+        padding-bottom: 150px;
     }
 
     .message-card{
@@ -108,21 +108,27 @@
         }
 
       .message-text{
-          position: relative;
-         background-color: red;
+         position: relative;
          margin: 10px 0px;
+         padding: 5px;
       }
       
      .me{
-   text-align: right;
-        
+        text-align: right;
+        padding-left: 50px;
      }
-
-  .them{
+        .them{
          text-align: left;
-           
+         padding-right: 50px;
       }
        
+     .message{
+         display: inline-block;
+         background-color: yellow;
+         border-radius: 10px;
+         padding: 5px;
+     }
+
     .active-thread{
             background-color: $gray-200; 
      }
@@ -134,9 +140,9 @@
             right: 30px;
             padding: 10px;
             display: none;
-            background-color: $gray-300;
+            background-color: $gray-200;
             left: 681px;
-            z-index: 999;
+            z-index: 2;
         }
 
         .show-message-input{
@@ -198,6 +204,60 @@
         }
 
        
+        .message-text .message-img,
+        .message-text .message-iframe,
+        .message-text .message-video
+        {
+             min-height: 100px;
+             max-height: 300px;
+             border-radius: 10px;
+         }
+
+         .message-text .message-img
+         {
+            cursor: pointer; 
+          }
+
+
+          .message-text .img-prev-modal{
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9)!important; 
+          }
+
+          .message-text .modal-img{
+              width: 100%;
+          }
+
+          .message-text .show-large-img{
+            display: block;
+          }
+
+          .add-z-index{
+              z-index: 99;
+          }
+
+          .img-prev-modal .close{
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            color: $gray-100;
+            cursor: pointer;
+          }
+
+          .download-btn{
+            position: absolute;
+            right: 20px;
+            background-color: green;
+            color: $gray-100;
+            display: none;
+          }
+
+          .img-el:hover .download-btn{
+            display: inline;
+            color: $gray-100;
+          }
 
         @media(max-width: 1124px){
             .show-message-header{
@@ -206,9 +266,10 @@
                 top: 0;
                 right: 0;
                 left: 0;
-                z-index: 200;
+                z-index: 2;
             }
             
+           
 
             .show-message-header button{
                 display: flex;
@@ -228,6 +289,10 @@
                 padding-top: 70px;
             }
 
+            .add-z-index{
+                z-index: 99;
+            }
+
             .show-message-input{
                 left: 20px;
                 right: 20px;
@@ -237,8 +302,16 @@
                 min-height: 30px;
             } 
 
+           .img-prev-modal .close{
            
+            top: 10px;
+            left: 10px;
+           
+          }
         }
+
+
+
 
         @media(max-width: 768px){
             .message-list{ 
@@ -260,5 +333,90 @@
 
            
         }
+
+
+        .file-upload{ 
+            .show-modal{
+                 display: block;
+                 z-index: 2; 
+             }
+         
+             .w3-modal-content{
+                 color: $gray-800;
+                 width: 40%;
+             }
+         
+         
+             .action-btns{
+                 display: flex;
+                 justify-content: flex-end;
+                padding: 10px;
+         
+             }
+         
+             .save-btn{
+                 background-color: $primary;
+                 color: $gray-100;
+                 border-radius: 5px;
+                 padding: 6px;
+                 width: 100px;
+                 font-weight: 800;
+                 margin-right: 50px;
+                 text-transform: uppercase;
+             }
+         
+             .save-btn:hover{
+                 background-color: $gray-700;
+                 color: $gray-100;
+             }
+         
+             .cancel-btn{
+                 background-color: $gray-300;
+                 color: $gray-800;
+                 border-radius: 6px;
+                 padding: 5px;
+                 width: 100px;
+                 text-transform: uppercase;
+             }
+         
+             .cancel-btn:hover{
+                 color: $gray-800!important;
+             }
+         
+             .file-upload-btn{
+                 padding: 5px 0px;
+                 font-size: 20px;
+                 color: $gray-200;
+                 background-color: rgba(0, 0, 0,0.5);
+                 width: 100%;
+             }
+         
+             .file-upload-btn small{
+                 font-size: small;
+             }
+         
+             .message-img,
+            .message-iframe,
+             .message-video
+             {
+                  width: 100%;
+                  max-height: 400px;
+              }
+              
+        
+             @media(max-width: 1124px){
+                 .w3-modal-content{
+                     width: 60%;
+                 }
+             }
+         
+             @media(max-width: 768px){
+                 .w3-modal-content{
+                     width: 80%;
+                 }
+             }
+         }     
+        
 }
+
 

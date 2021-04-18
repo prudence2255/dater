@@ -3,23 +3,25 @@ import * as Imports from 'components/Imports';
 import Files from 'components/profile/File';
 
 
-export default function MessageBody({thread}) {
-
+export default function MessageBody({thread, preview, setPreview}) {
     const {authUser} = Imports.useSelector(Imports.usersSelector);
+
     if(!thread) return <div>Loading...</div>
    
     const messages = thread?.messages?.map((message, i) => {
              if(message?.type !== 'text'){
            return (
              <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>
-            <Files url={message?.file_url} file={{type: message?.type}}/>
+            <Files url={message?.file_url} file={{type: message?.type}} 
+                preview={preview} setPreview={setPreview}
+            />
              </div>
              )    
          }
         else{
             return (
              <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>
-                {message.body}
+              <div className="message">{message.body}</div>
              </div>
                 )
             }

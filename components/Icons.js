@@ -6,13 +6,28 @@ import {FaUserAlt, FaBars, FaPowerOff,
 
 import {IoMdNotifications, IoIosSettings, IoMdSend
     } from 'react-icons/io';
-import {MdMessage, MdErrorOutline, MdFileUpload, MdAttachFile} from 'react-icons/md';
-import {BsEyeFill, BsInfoCircle} from 'react-icons/bs';
+import {MdMessage, MdErrorOutline, MdFileUpload, MdAttachFile, MdClose, MdFileDownload} from 'react-icons/md';
+import {BsEyeFill, BsInfoCircle, BsArrowDownShort} from 'react-icons/bs';
 import {BiEdit } from 'react-icons/bi';
 import {GiThreeFriends} from 'react-icons/gi';
 import {GrEmoji} from 'react-icons/gr';
 
 
+export const DownloadIcon = () => {
+    return (
+        <>
+    <MdFileDownload/>
+        </>
+    )
+}
+
+export const CloseIcon = () => {
+    return (
+        <>
+    <MdClose />
+        </>
+    )
+}
 
 export const SendIcon = () => {
     return (

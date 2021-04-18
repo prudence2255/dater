@@ -85,7 +85,7 @@ export const putHttp =  async (data, thunk) => {
      const res = await apiClient({
         method: 'PUT', 
        url: url, 
-       data: JSON.stringify(body),
+       data: body,
                 });
       thunk.dispatch(endLoading());
       return res;  

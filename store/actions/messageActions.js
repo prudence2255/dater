@@ -33,7 +33,7 @@ export const addThread = createAsyncThunk(
  export const updateThread = createAsyncThunk(
   'messages/updateThread',
     async (data, thunk) => {
-      return http.putHttp(data, thunk);
+      return http.postHttp(data, thunk);
   }
 );
 

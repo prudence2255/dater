@@ -9,6 +9,7 @@ import Notifications from 'react-notify-toast';
 export default function Header({show, toggleShow, target}) {
 const [loading, setLoading] = React.useState(false); 
 const {errors} = A.useSelector(A.errorsSelector);
+const {authUser} = A.useSelector(A.usersSelector);
 
     const dispatch = A.useDispatch();
     const cookies = new A.Cookies();
@@ -47,7 +48,7 @@ const {errors} = A.useSelector(A.errorsSelector);
                       </Link>
                   </li>
                   <li className="dater-list-item user-dropdown">
-                    <button onClick={() => toggleShow('user-pop')} ><span className="user-name d-none d-lg-block">Arahim</span>
+                    <button onClick={() => toggleShow('user-pop')} ><span className="user-name d-none d-lg-block">{authUser?.first_name}</span>
                     <img
                     src="/female-avatar.png"
                     alt="Picture of the author"

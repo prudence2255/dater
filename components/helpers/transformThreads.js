@@ -37,8 +37,7 @@ class TransformThreads {
  * @returns 
  */
     getProfilePicture(profilePics){
-       return profilePics?.find(pic => pic?.client_id !== this.authUser?.id);
-
+       return profilePics?.find(pic => pic?.profile_picture?.client_id !== this.authUser?.id);
     }
 
     /**

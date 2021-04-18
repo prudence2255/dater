@@ -4,6 +4,7 @@ import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
 import FileUpload from 'components/profile/FileUpload';
 import * as Imports from 'components/Imports';
+import {tempMsg, tempAddMsg} from 'store/slices/messagesSlice';
 
 
 export default function MessageInput({thread, mid}) {
@@ -19,6 +20,7 @@ const cookies = new Imports.Cookies();
 
     const addEmoji = (e) => {
        setEmoji(e.native);
+       setMessage(message + e.native);
         setEmojiBox(false)
     }
 
@@ -34,23 +36,39 @@ const cookies = new Imports.Cookies();
         setMessage(e.target.value)
     }
 
+    /**
+     * if mid means its a new thread and a new thread is sent to the backend
+     * otherwise the current thread is updated
+     */
+
     const sendMessage = () => {
-        const data = {body: message, type: 'text', recipients: user.id};
+        let data;
         if(Object.keys(thread).length === 0 && mid){
+            data = {body: message, type: 'text', recipients: user.id};
             dispatch(Imports.addThread({url: '/api/threads', body: data, cookie: cookies.get("token")}))
                     .then(Imports.unwrapResult).then((res) => res)
-                    .catch((e) => e.message)
+                    .catch((e) => e.message);
+         
+                 dispatch(tempAddMsg({
+                     ...data, user_id: authUser?.id
+                 }));             
         }else{
+            data = {body: message, type: 'text', recipients: thread?.receiver?.id};
+/**
+ * creates a temporal message
+ */
+         dispatch(tempMsg({
+                ...data, user_id: authUser?.id
+            })); 
         dispatch(Imports.updateThread({url: `/api/threads/${thread.id}`, body: data, cookie: cookies.get("token")}))
         .then(Imports.unwrapResult).then((res) => res)
         .catch((e) => e.message)
         }
-       
     }
 
     return (
         <div>
-        <FileUpload ref={ref} />
+        <FileUpload ref={ref} thread={thread} mid={mid}/>
         <div className={`emoji-box w3-card-2 ${emojiBox ? 'show-emoji-box' : ''}`}>
                 <Picker onSelect={addEmoji} />
         </div>
@@ -59,7 +77,7 @@ const cookies = new Imports.Cookies();
                 <div className="file-btn"><button onClick={handleSelect}><FileIcon /></button></div>
                 <div className="message-input-box">
                     <textarea placeholder="Type a message" type="text" name="message" className="message-input"
-                    onChange={handleChange} ref={inputRef} autoFocus
+                    onChange={handleChange} ref={inputRef} autoFocus value={message}
                     ></textarea>
                 </div>
                 <div>

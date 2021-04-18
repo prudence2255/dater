@@ -233,6 +233,10 @@ const handleCities= (e) => {
                         Save time & money
                         </h3>
                         <p>
+                        Attempts to find a partner in various entertainment venues or specialized groups for
+                         those who want to get married, often end in a loss of time and frustration.
+                        With the experience of such unsuccessful dates, the loneliness syndrome only grows,
+                       and the desire to start them in this way decreases.
                         Here we make it easy to meet folks and feel things out first–so
                          when you do go on that first date, or meet for coffee without spending a penny,
                           you can relax and be yourself.

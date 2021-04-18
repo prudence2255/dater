@@ -16,14 +16,18 @@ const MessageInput = dynamic(
 
  function Messages() {
  const [showMessages, setShowMessages] = React.useState(false);
- const {user, authUser} = Imports.useSelector(Imports.usersSelector);
+ const [preview, setPreview] = React.useState(false);
+
+ const {authUser} = Imports.useSelector(Imports.usersSelector);
  const {thread, threads} = useSelector(messagesSelector);
 
+ 
  const threadsClass = new TransformThreads(threads, authUser);
  const newThreads = threadsClass?.getThreads();
  const threadWithMessages = newThreads?.map((thread, i) => <MessageCard key={i} thread={thread}
-     setShowMessages={setShowMessages} 
+     setShowMessages={setShowMessages} id={thread?.id}
  />)
+
 
  const router = Imports.useRouter();
  const dispatch = Imports.useDispatch();
@@ -32,39 +36,39 @@ const {mid} = router.query;
 /**
  * check if there is already a thread containing the user
  */
+
 React.useEffect(() => {
     if(mid){
-        const oldThread = threads?.find(thread => thread?.users?.map(user => user?.username === mid));
+        setShowMessages(true)
+        const oldThread = newThreads?.find(thread => thread?.receiver?.username === mid);
         oldThread && dispatch(setThread(oldThread));
     }
-}, [mid]);
+}, [mid, newThreads[0]?.id]);
 
-    return (
+return (
         <Imports.Layout>
         <div className="container-fluid">
         <div className="messages">
-        <div className={`message-input-container ${showMessages || mid ? 'show-message-input': ''}`}>
+        <div className={`message-input-container ${showMessages ? 'show-message-input': ''}`}>
                 <MessageInput thread={thread} mid={mid}/>
         </div>
-        <div className={`message-header w3-card-2 ${showMessages || mid ? 'show-message-header': ''}`}>
+        <div className={`message-header w3-card-2 ${showMessages ? 'show-message-header': ''}`}>
             <div>
                 <button onClick={() => setShowMessages(false)} >
                     <LeftAngleIcon size="30"       
                     />
                 </button>
             </div>
-            <div>
-               
-            </div>
         </div>
             <div className="messages-container">
                 <div className="message-list w3-card">
                {threadWithMessages}
                 </div>
-                <div className={`message-body 
-                ${showMessages || mid ? 'show-message-modal': ''}`}>
-                   <MessageBody thread={thread} setShowMessages={setShowMessages}/>
-                
+                <div className={`message-body ${preview ? 'add-z-index': ''}
+                ${showMessages ? 'show-message-modal': ''}`}>
+                   <MessageBody thread={thread} setShowMessages={setShowMessages}
+                       preview={preview} setPreview={setPreview}
+                   /> 
                 </div>
             </div>
          </div> 

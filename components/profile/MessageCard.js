@@ -1,10 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
 import {useDispatch} from 'react-redux';
 import {setThread} from 'store/slices/messagesSlice';
+import * as Imports from 'components/Imports';
 
-export default function MessageCard({thread, setShowMessages}) {
-
+export default function MessageCard({thread, id, setShowMessages}) {
+  const messages = Imports.useSelector(Imports.messagesSelector);
     const dispatch = useDispatch();
     const currentThread = (current) => {
             dispatch(setThread(current));
@@ -14,27 +14,27 @@ const {profilePic, lastMessage, lastMessageTime, receiver,
       last_read, count,
      } = thread;
 
- if(typeof window !== 'undefined'){
-const threadContainer = document.querySelector(".message-list");
+//  if(typeof window !== 'undefined'){
+// const threadContainer = document.querySelector(".message-list");
 
-const threads = threadContainer?.getElementsByClassName("message-card");
+// const threads = threadContainer?.getElementsByClassName("message-card");
 
-for (let i = 0; i < threads?.length; i++) {
-  threads[i].addEventListener("click", function() {
-    const current = document.getElementsByClassName("active-thread");
+// for (let i = 0; i < threads?.length; i++) {
+//   threads[i].addEventListener("click", function() {
+//     const current = document.getElementsByClassName("active-thread");
 
-    if (current?.length > 0) {
-      current[0].className = current[0].className.replace(" active-thread", "");
-    }
+//     if (current?.length > 0) {
+//       current[0].className = current[0].className.replace(" active-thread", "");
+//     }
 
-    this.className += " active-thread";
-  });
-}
-    }
+//     this.className += " active-thread";
+//   });
+// }
+//     }
 
 
      return (
-        <div onClick={() => currentThread(thread)} className="message-card ">
+        <div onClick={() => currentThread(thread)} className={`message-card ${id === messages?.thread?.id ? 'active-thread' : ''}`}>
             <div className="img-container message-item">
                 <img 
                 src={profilePic?.profile_picture?.photos?.xsmall ?? `/male-avatar.png`}

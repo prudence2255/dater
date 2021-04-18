@@ -12,14 +12,38 @@ import * as actions from 'components/Imports';
   name: 'messages',
   initialState: {
     threads: [],
-    thread: {}
+    thread: {} 
   },
 
 
   reducers: {
     setThread: (state, action) => {
         state.thread = action.payload
-     }
+     },
+
+    tempMsg: (state, action) => {
+      state.thread = {
+     ...state.thread,
+        messages: [
+          ...state.thread?.messages,
+          {body: action.payload.body, type: action.payload.type, 
+            user_id: action.payload.user_id,
+          file_url: action.payload.file_url
+          } 
+        ]
+      }
+    },
+    
+    tempAddMsg: (state, action) => {
+      state.thread = {
+        messages: [
+          {body: action.payload.body, type: action.payload.type, 
+            user_id: action.payload.user_id,
+          file_url: action.payload.file_url
+          } 
+        ]
+      }
+    } 
   },
   
   extraReducers: {
@@ -28,21 +52,25 @@ import * as actions from 'components/Imports';
     },
 
     [actions.addThread.fulfilled]: (state, action) => {
-     state.threads = [action.payload.data, ...state.threads];
+     state.threads = [action.payload.data.data, ...state.threads];
     },
 
     [actions.updateThread.fulfilled]: (state, action) => {
-      const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.id);
+      const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.data.id);
       const newThreads = [...state.threads]   
-       newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.data)
-       state.threads = newThreads
-     }, 
+       newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.data.data)
+       state.threads = newThreads;
+       state.thread = newThreads[threadIndex];
+     },
+     
   }
 
 });
 
 export const {
     setThread,
+    tempMsg,
+    tempAddMsg
 } = messagesSlice.actions
 
 
