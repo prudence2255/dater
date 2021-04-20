@@ -1,7 +1,6 @@
-
 import { createSlice, createSelector} from '@reduxjs/toolkit'
 import * as actions from 'components/Imports';
- 
+
 
 
 /**
@@ -43,7 +42,23 @@ import * as actions from 'components/Imports';
           } 
         ]
       }
-    } 
+    }, 
+
+    addRealTimeThread: (state, action) => {
+      state.threads = [action.payload.thread, ...state.threads];
+    },
+
+    updateRealTimeThread: (state, action) => {
+      console.log(action.payload.thread)
+      const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.thread.id);
+      const newThreads = [...state.threads]   
+       newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.thread)
+       state.threads = newThreads;
+       if(state.thread?.id === newThreads[threadIndex]?.id){
+        state.thread = newThreads[threadIndex];
+       }
+       
+    }
   },
   
   extraReducers: {
@@ -56,13 +71,21 @@ import * as actions from 'components/Imports';
     },
 
     [actions.updateThread.fulfilled]: (state, action) => {
+    
       const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.data.id);
       const newThreads = [...state.threads]   
        newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.data.data)
        state.threads = newThreads;
        state.thread = newThreads[threadIndex];
      },
-     
+  
+     [actions.getThread.fulfilled]: (state, action) => {
+      const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.data.id);
+      const newThreads = [...state.threads]   
+       newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.data.data)
+       state.threads = newThreads;
+       state.thread = newThreads[threadIndex];
+     },
   }
 
 });
@@ -70,7 +93,9 @@ import * as actions from 'components/Imports';
 export const {
     setThread,
     tempMsg,
-    tempAddMsg
+    tempAddMsg,
+    addRealTimeThread,
+    updateRealTimeThread
 } = messagesSlice.actions
 
 

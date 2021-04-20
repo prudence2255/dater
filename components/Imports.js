@@ -22,10 +22,11 @@ import Notifications, {notify} from 'react-notify-toast';
 import {useRouter} from 'next/router';
 import {wrapper} from 'store/store';
 import UserCard from 'components/profile/UserCard';
-import {getThreads, addThread, updateThread} from 'store/actions/messageActions';
+import {getThreads, addThread, updateThread, getThread} from 'store/actions/messageActions';
 
 
 export {
+    getThread,
     getThreads,
     addThread,
     updateThread,

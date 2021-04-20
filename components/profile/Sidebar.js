@@ -35,6 +35,7 @@ export default function SideBar({show, target}) {
                 </a>
                  </Link>
                    </li>
+
                 <li>
                  <Link href={`/profile/[username]`} as={`/profile/${authUser?.username}`}>
                 <a>
@@ -48,9 +49,9 @@ export default function SideBar({show, target}) {
                 </a>
                  </Link>
                    </li>
+
                    <li>
-                   <Link href="/account">
-                  
+               <Link href="/account">  
                 <a>
                 <span>
                <SettingsIcon />
@@ -58,14 +59,13 @@ export default function SideBar({show, target}) {
                 <span>
                 Account Settings
                 </span>
-                
                <span></span>
                 </a>
                 </Link>
                    </li>
-                   <li>
-                   <Link href="/profile/messages">
-                  
+
+                <li>
+                 <Link href="/profile/messages"> 
                 <a>
                 <span>
                <MessageIcon />
@@ -73,13 +73,17 @@ export default function SideBar({show, target}) {
               <span>
               Messages
               </span>
-              <span className="count">{authUser?.new_messages ?? 0}</span>
+              {authUser?.new_messages ? <span className="count">{authUser?.new_messages}</span> : 
+              <span></span>
+               }
+            
                 </a>
                  
-                    </Link>
-                   </li>
-                   <li>
-                   <Link href="/profile/notifications">
+                </Link>
+                 </li>
+
+                <li>
+               <Link href="/profile/notifications">
                   
                 <a>
                 <span>
@@ -91,10 +95,11 @@ export default function SideBar({show, target}) {
                <span className="count">{authUser?.new_notifications ?? 0}</span>
                </a>
                
-                      </Link>
-                   </li>
-                   <li>
-                   <Link href="/profile/views">
+                 </Link>
+                </li>
+
+                <li>
+                <Link href="/profile/views">
                   
                 <a>
                 <span>
@@ -106,24 +111,28 @@ export default function SideBar({show, target}) {
                 <span className="count">{authUser?.new_views ?? 0}</span>
                 </a>
                
-                    </Link>
-                   </li>
+                 </Link>
+                 </li>
+
+
                    <li>
                    <Link href="/profile/likes">
                   
                     <a>
                     <span>
-               <LikeIcon />
-               </span>
+                  <LikeIcon />
+                  </span>
                     <span>
                     Likes
                     </span>
                     <span className="count">{authUser?.new_likes ?? 0}</span>
                     </a>
                    
-                    </Link>
+                   </Link>
                    </li>
-                   <li>
+
+
+                <li>
                    <Link href="/profile/friend-requests">
                   
                  <a>
@@ -135,8 +144,8 @@ export default function SideBar({show, target}) {
                 </span>
                 <span className="count">{authUser?.new_requests ?? 0}</span>
                  </a>
-                    </Link>
-                   </li>
+                   </Link>
+                 </li>
                </ul>
            </nav>
         </div>

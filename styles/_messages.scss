@@ -208,8 +208,7 @@
         .message-text .message-iframe,
         .message-text .message-video
         {
-             min-height: 100px;
-             max-height: 300px;
+             height: 200px;
              border-radius: 10px;
          }
 
@@ -246,15 +245,19 @@
             cursor: pointer;
           }
 
-          .download-btn{
-            position: absolute;
-            right: 20px;
+         .message-text .download-btn{
             background-color: green;
             color: $gray-100;
             display: none;
+            position: absolute;
+            left: 80%;
           }
 
-          .img-el:hover .download-btn{
+          .message-text .img-el{
+            position: relative;
+          }
+
+         .message-text .img-el:hover .download-btn{
             display: inline;
             color: $gray-100;
           }
@@ -269,7 +272,12 @@
                 z-index: 2;
             }
             
-           
+        .message-text .message-img,
+        .message-text .message-iframe,
+        .message-text .message-video
+        {
+             height: 150px;
+         }
 
             .show-message-header button{
                 display: flex;
@@ -403,7 +411,9 @@
                   max-height: 400px;
               }
               
-        
+              .download-btn{
+                  display: none;
+              }
              @media(max-width: 1124px){
                  .w3-modal-content{
                      width: 60%;

@@ -6,32 +6,16 @@ import * as Imports from 'components/Imports';
 export default function MessageCard({thread, id, setShowMessages}) {
   const messages = Imports.useSelector(Imports.messagesSelector);
     const dispatch = useDispatch();
+    const cookies = new Imports.Cookies();
+    
     const currentThread = (current) => {
             dispatch(setThread(current));
+            dispatch(Imports.getThread({url: `/api/threads/${current.id}`, cookie: cookies.get("token")}));
            setShowMessages(true);
      }
 const {profilePic, lastMessage, lastMessageTime, receiver,
       last_read, count,
      } = thread;
-
-//  if(typeof window !== 'undefined'){
-// const threadContainer = document.querySelector(".message-list");
-
-// const threads = threadContainer?.getElementsByClassName("message-card");
-
-// for (let i = 0; i < threads?.length; i++) {
-//   threads[i].addEventListener("click", function() {
-//     const current = document.getElementsByClassName("active-thread");
-
-//     if (current?.length > 0) {
-//       current[0].className = current[0].className.replace(" active-thread", "");
-//     }
-
-//     this.className += " active-thread";
-//   });
-// }
-//     }
-
 
      return (
         <div onClick={() => currentThread(thread)} className={`message-card ${id === messages?.thread?.id ? 'active-thread' : ''}`}>

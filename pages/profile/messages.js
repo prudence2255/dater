@@ -7,7 +7,9 @@ import {messagesSelector} from 'store/slices/messagesSlice';
 import { LeftAngleIcon } from 'components/Icons';
 import dynamic from 'next/dynamic';
 import TransformThreads from 'components/helpers/transformThreads';
-import {setThread} from 'store/slices/messagesSlice';
+import {setThread, addRealTimeThread, updateRealTimeThread} from 'store/slices/messagesSlice';
+import io from 'socket.io-client';
+ 
 
 const MessageInput = dynamic(
     () => import('components/profile/MessageInput'),
@@ -20,7 +22,6 @@ const MessageInput = dynamic(
 
  const {authUser} = Imports.useSelector(Imports.usersSelector);
  const {thread, threads} = useSelector(messagesSelector);
-
  
  const threadsClass = new TransformThreads(threads, authUser);
  const newThreads = threadsClass?.getThreads();
@@ -28,10 +29,33 @@ const MessageInput = dynamic(
      setShowMessages={setShowMessages} id={thread?.id}
  />)
 
-
  const router = Imports.useRouter();
  const dispatch = Imports.useDispatch();
 const {mid} = router.query;
+
+/**
+ * real time messaging
+ */
+ const socket = io("http://localhost:8005");
+ 
+ socket.on('connect', function() {
+    socket.emit('user_connected', authUser?.id);
+ });
+ 
+ socket.on('updateUserStatus', (data) => {
+    // console.log(data)
+ });
+ 
+ socket.on("message:message.created", function (message)
+ {
+    const oldThread = newThreads?.find(thread => thread.id === message.thread.id);
+    if(oldThread){
+        dispatch(updateRealTimeThread(message));
+    }else{
+        dispatch(addRealTimeThread(message));
+    }
+ });
+
 
 /**
  * check if there is already a thread containing the user
