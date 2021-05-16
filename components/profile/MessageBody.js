@@ -13,11 +13,11 @@ export default function MessageBody({thread, preview, setPreview}) {
            return (
              <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>
             <Files url={message?.file_url} file={{type: message?.type}} 
-                preview={preview} setPreview={setPreview}
+                preview={preview} setPreview={setPreview} i={i}
             />
              </div>
              )    
-         }
+            }
         else{
             return (
              <div key={i} className={`message-text ${message.user_id === authUser?.id ? 'me' : 'them'}`}>

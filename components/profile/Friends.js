@@ -1,18 +1,27 @@
 import React from 'react';
 import UserCard from 'components/profile/UserCard';
+import {CardLoader} from 'components/Loaders';
+import * as Imports from 'components/Imports';
+import {friendsSelector} from 'store/slices/friendsSlice';
 
-export default function Friends({friends}) {
+export default function Friends({loading}) {
+    const {status} = Imports.useSelector(Imports.loadersSelector);
+    const {friends} = Imports.useSelector(friendsSelector);
+
+
+     const userCards = friends?.map((user, i) => (<UserCard user={user} key={i}/>))
+
+    if(loading){
+        return(
+              <CardLoader/> 
+            )
+    }
+
+
     return (
         <div>
-           <div className="row">
-               {/* {friends || [].map((user, i) => ( */}
-                <div className="col-md-4" >
-                <div className="friend-card">
-                    <UserCard user={''}/>
-                </div>
-
-                </div> 
-               {/* ))} */}
+           <div className="friends">
+              {userCards}
            </div> 
         </div>
     )

@@ -15,7 +15,12 @@ class TransformThreads {
         let msgStr;
         const msg = messages[messages?.length - 1];
         if(msg.type === "text" && msg.body){
-            msgStr = msg.body?.slice(0, 20)+'...';
+            if(msg?.body?.length > 20){
+            msgStr = msg.body?.slice(0, 20)+'...';  
+            }else{
+            msgStr = msg.body;
+            }
+            
         }else{
             msgStr = 'file'
         }
@@ -36,8 +41,13 @@ class TransformThreads {
  * @param {object} profilePics 
  * @returns 
  */
-    getProfilePicture(profilePics){
-       return profilePics?.find(pic => pic?.profile_picture?.client_id !== this.authUser?.id);
+    getProfilePicture(extras){
+       return extras?.find(extra => extra?.profile_picture?.client_id !== this.authUser?.id);
+    }
+
+    getNewMessageCount(extras){
+        const clientNewMessages = extras?.find(extra => extra?.user_id == this.authUser?.id);
+        return clientNewMessages?.count;
     }
 
     /**
@@ -66,15 +76,16 @@ class TransformThreads {
       const threads = this.threads?.map((thread, i) => {
             return {
                 id: thread.id,
-                count: thread.count,
                 messages: thread.messages,
                 users: thread.users,
                 participants: thread.participants,
-                profilePic: this.getProfilePicture(thread.profile_pictures),
+                profilePic: this.getProfilePicture(thread.extras),
                 receiver: this.getReceiver(thread.users),
                 lastMessage: this.lastMessage(thread.messages),
                 last_read: this.getLastRead(thread.participants),
-                lastMessageTime: this.lastMessageTime(thread.messages)
+                lastMessageTime: this.lastMessageTime(thread.messages),
+                newMessageCount: this.getNewMessageCount(thread.extras)
+
             }
         })
       return threads  

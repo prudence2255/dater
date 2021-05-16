@@ -21,8 +21,14 @@ const countries = locations?.data.map((location) => location.country)
    authUser: {},
    user: {},
    users: [],
+   usersPag: {},
    photos: [],
-   profilePic: {}
+   profilePic: {},
+   new_messages_count: null,
+   new_notifications_count: null,
+   notifications_count: null,
+   new_views_count: null,
+   new_friends_count: null,
   },
 
   reducers: {
@@ -45,6 +51,7 @@ const countries = locations?.data.map((location) => location.country)
      },
 
      [register.fulfilled]: (state, action) => {
+      cookies.set('info', action.payload.data.welcome.data?.info, {path: '/', maxAge: 315360000})
       cookies.set('token', action.payload.data.token, {path: '/', maxAge: 315360000})
      },
 
@@ -53,7 +60,13 @@ const countries = locations?.data.map((location) => location.country)
      },
   
      [authUser.fulfilled]: (state, action) => {
-     state.authUser = action.payload.data;
+     state.authUser = action.payload.data.user;
+     state.new_messages_count = action.payload.data.new_messages_count;
+     state.new_notifications_count = action.payload.data.new_notifications_count;
+     state.notifications_count = action.payload.data.notifications_count;
+     state.new_views_count = action.payload.data.new_views_count,
+     state.new_likes_count = action.payload.data.new_likes_count,
+     state.new_friends_count = action.payload.data.new_friends_count
      },
 
     [getUser.fulfilled]: (state, action) => {
@@ -78,7 +91,8 @@ const countries = locations?.data.map((location) => location.country)
   },
   
   [getUsers.fulfilled]: (state, action) => {
-    state.users = action.payload.data.data;
+    state.users =  [...state.users, ...action.payload.data.data];
+    state.usersPag = action.payload.data.meta;
   }  
   
   }
@@ -95,10 +109,17 @@ export const usersSelector = createSelector(
       countries: state.users.countries,
       cities: state.users.cities,
       users: state.users.users,
+      usersPag: state.users.usersPag,
       authUser: state.users.authUser,
       user: state.users.user,
       photos: state.users.photos,
-      profilePic: state.users.profilePic
+      profilePic: state.users.profilePic,
+      new_messages_count: state.users.new_messages_count,
+      new_notifications_count: state.users.new_notifications_count,
+      notifications_count: state.users.notifications_count,
+      new_views_count: state.users.new_views_count,
+      new_likes_count: state.users.new_likes_count,
+      new_friends_count: state.users.new_friends_count
     }),
 
     (state) => state

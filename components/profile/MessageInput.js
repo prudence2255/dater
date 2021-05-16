@@ -64,6 +64,7 @@ const cookies = new Imports.Cookies();
         .then(Imports.unwrapResult).then((res) => res)
         .catch((e) => e.message)
         }
+        setMessage('');
     }
 
     return (

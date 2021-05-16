@@ -38,7 +38,7 @@ export default function Login({loginModal,setLoginModal}) {
 
     return (
         <>
-<div className={`w3-modal ${loginModal ? 'show-login-modal':''}`}>
+<div className={`login-container w3-modal ${loginModal ? 'show-login-modal':''}`}>
     <div className="w3-modal-content w3-animate-zoom">
         <div className="card">
          <div className="card-header login-header">

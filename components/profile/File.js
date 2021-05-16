@@ -1,25 +1,32 @@
 import React from 'react';
 import {CloseIcon, DownloadIcon} from 'components/Icons';
 
-export default function Files({file, url, preview, setPreview}) {
 
-    const handlePreview = () => {
-        setPreview(true);
-    }
-const handleClose = () => {
+export default function Files({file, url, i, preview, setPreview}) {
+const [index, setIndex] = React.useState();
+
+
+    const handlePreview = (index) => {   
+                setIndex(index)
+                 setPreview(true)
+            }
+
+    const handleClose = () => {
     setPreview(false)
-}
+    setIndex(null)
+    }
+
     let fileElement;
         if(file?.type?.includes("image")){
             fileElement = (
                 <div className="img-el">
                 <a href={url} className="btn download-btn" download><DownloadIcon /></a>
-                <img  src={url} className="img-fluid message-img" onClick={handlePreview}/>
-                 <div className={`w3-modal img-prev-modal ${preview ? 'show-large-img':''}`}>
+                <img src={url} className="img-fluid message-img" onClick={() => handlePreview(i)}/>
+                 <div className={`w3-modal img-prev-modal ${preview && i === index ? 'show-large-img':''}`}>
                  <span className="close" onClick={handleClose}><CloseIcon /></span>
                 <div className="w3-modal-content w3-animate-zoom">
                 <div>
-                <img  src={url} className="img-fluid modal-img"/>
+                <img src={url} className="img-fluid modal-img"/>
                 </div>
                  </div>
                  </div>

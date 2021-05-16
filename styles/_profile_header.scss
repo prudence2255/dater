@@ -1,94 +1,12 @@
-.user-header-container{
-    background-color: white;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 60px;
-    width: 100%;
-     z-index: 1;
-     padding-top: 10px;
-     border-bottom: 2px solid $primary;
 
-    .user-header nav .dater-list{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      
-    }
-
-    .user-dropdown{
-        position: relative;
-        margin: 0px 25px;
-        padding: 0;
-    }
-
-
-    .user-dropdown ul{
-        position: absolute;
-        right: 10px;
-        padding: 10px 0px;
-        min-height: 100px;
-        min-width: 200px;
-        background-color: white;
-        transform: scale(0);
-        transition: .3s ease;
-        top: 50px;
-    }
-
-    .user-dropdown ul li{
-        padding: 15px;
-    }
-
-    .user-dropdown ul li:hover{
-        background-color: $gray-300;
-    }
-
-    .user-dropdown ul li a:hover, .user-dropdown ul li a{
-        color: $gray-800!important;
-    }
-    .user-dropdown .show-popup{
-        transform: scale(1);
-    }
-
-    .user-header .icon{
-        color: $primary;
-        font-size: 25px;
-    }
-    .logo-link{
-        margin-right: auto;
-      
-    }
-
-    .user-name{
-        position: absolute;
-        right: 40px;
-        top: 10px;
-        font-size: 16px;
-        color: $gray-800;
-        }
-        .message-drop{
-    margin-right: 100px;
-        }
-   
-        .sidebar-toggle{
-     margin-right: 50px;
-     display: none;
-        }
-
-        .user-avatar{
+    .auth-user-avatar{
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
         }
         
-        @media(max-width: 768px){
-            .sidebar-toggle{
-                display: block;
-            }
-
-            .message-drop{
-                margin-right: 20px;
-                    }
-        }
-
-
-}
+     .main-header{
+         a:hover{
+             color: $gray-200!important;
+         }
+     }   

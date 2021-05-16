@@ -7,23 +7,22 @@ export default function MessageCard({thread, id, setShowMessages}) {
   const messages = Imports.useSelector(Imports.messagesSelector);
     const dispatch = useDispatch();
     const cookies = new Imports.Cookies();
-    
+
     const currentThread = (current) => {
             dispatch(setThread(current));
             dispatch(Imports.getThread({url: `/api/threads/${current.id}`, cookie: cookies.get("token")}));
            setShowMessages(true);
      }
 const {profilePic, lastMessage, lastMessageTime, receiver,
-      last_read, count,
+      last_read, newMessageCount,
      } = thread;
 
      return (
+       <>
         <div onClick={() => currentThread(thread)} className={`message-card ${id === messages?.thread?.id ? 'active-thread' : ''}`}>
             <div className="img-container message-item">
                 <img 
                 src={profilePic?.profile_picture?.photos?.xsmall ?? `/male-avatar.png`}
-                  width="60"
-                  height="60"
                   className="img-fluid message-card-img"  
                 />
             </div>
@@ -35,8 +34,10 @@ const {profilePic, lastMessage, lastMessageTime, receiver,
             </div>
             <div className="message-item time">
                 <span>{new Date(lastMessageTime).toLocaleTimeString()}</span><br />
-                <span className={`${count ? 'count' : ''}`}>{count !== 0 ? count : ''}</span>
+                <span className={`${newMessageCount ? 'count' : ''}`}>{newMessageCount !== 0 ? newMessageCount : ''}</span>
             </div>
         </div>
+        <div className="dropdown-divider" />
+        </>
     )
 }

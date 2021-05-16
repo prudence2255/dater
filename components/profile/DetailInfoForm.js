@@ -335,7 +335,7 @@ const dispatch = imports.useDispatch();
                         <div className="col-md-4"></div>
                         <div className="col-md-6">
                     <div className="action-btns">
-                        <button className="save-btn">Save</button>
+                        <button className="save-btn btn">Save</button>
                         <a className="cancel-btn btn">Cancel</a>
                     </div>
                     </div>

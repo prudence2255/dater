@@ -49,7 +49,6 @@ import * as actions from 'components/Imports';
     },
 
     updateRealTimeThread: (state, action) => {
-      console.log(action.payload.thread)
       const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.thread.id);
       const newThreads = [...state.threads]   
        newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.thread)

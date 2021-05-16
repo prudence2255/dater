@@ -2,6 +2,46 @@
 .main-profile{
     min-height: 500px;
 
+    .visitor-actions-panel{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .visitor-actions-panel div{
+        margin: 5px 20px;
+    }
+
+    .visitor-actions-panel span{
+        padding: 5px;
+        background-color: $gray-200;
+        border: 1px solid $gray-400;
+        position: relative;
+        top: 10px;
+    }
+
+    .visitor-actions-panel button{
+     
+      font-size: 30px;
+      color: $primary;  
+    }
+
+    .visitor-actions-panel button:hover{
+        color: $gray-500;
+    }
+
+    .visitor-actions-panel button.liked{
+        color:  #e83e8c!important;
+    }
+
+   .nav-tabs a{
+        color: $gray-800!important;
+        font-weight: bold;
+    }
+
+    .nav-tabs .active{
+        background-color: white!important;
+    }
+
  .profile-info{
         padding-left: 25px;
         padding-right: 10px;
@@ -61,24 +101,15 @@
   }
 
 
-
-.photos-tab, .about-tab, .friends-tab{
-    display: none;
-    
-  }
-
-  .show-tab-content{
-      display: block;
-  }
-
       .active-btn{
           border-bottom: 3px solid $primary;
           color: black!important;
       }
 
-      .edit-profile-btn{
+
+    .edit-profile-btn{
          text-align: center;
-      }
+ }
 
       .edit-profile-btn a{
           color: $gray-200;
@@ -100,6 +131,20 @@
         padding: 10px;
         margin-top: 30px;
     }
+
+    .photos, .friends{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .photos .photo{
+        width: 150px;
+        margin: 15px;
+    }
+
 
     @media(max-width: 768px){
         .info-list .label{

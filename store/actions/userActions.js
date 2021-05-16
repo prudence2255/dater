@@ -108,7 +108,7 @@ export const register = createAsyncThunk(
  export const getPhotos = createAsyncThunk(
   'users/getPhotos',
     async (data, thunk) => {
-      return http.publicGetHttp(data, thunk);
+      return http.getHttp(data, thunk);
   }
 );
 

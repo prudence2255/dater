@@ -1,10 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import Echo from 'laravel-echo';
-import socketio from 'socket.io-client';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
-import Pusher from 'pusher-js';
 import Home from 'components/public/Home';
 import Login from 'components/profile/Login';
 import * as imports from 'components/Imports';

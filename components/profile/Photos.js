@@ -3,18 +3,27 @@ import Image from 'next/image';
 import ImageUpload from 'components/profile/ImageUpload';
 import * as Imports from 'components/Imports';
 import {CardLoader} from 'components/Loaders';
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 export default function Photos({loading}) {
+    const [viewImages, setViewImages] = React.useState(null);
+    const [startIndex, setStartIndex] = React.useState(0);
     const {user, authUser, photos} = Imports.useSelector(Imports.usersSelector);
     const {status} = Imports.useSelector(Imports.loadersSelector);
 
+    const handleOpenImage = (index) => {
+        setStartIndex(index)
+        setViewImages(true);
+    }
+
+    const handleCloseImage = () => {
+        setViewImages(false);
+    }
+
     if(loading){
         return(
-            <div className="row">
-                {[1,2,3,4,5,6].map((item, i) => (
-                   <CardLoader key={i}/>
-                ))}
-            </div>
+            <CardLoader />   
         )
     }
 
@@ -27,15 +36,21 @@ export default function Photos({loading}) {
             <div className="mx-auto mt-3 text-center">
                     <ImageUpload btn="photo-upload"/>
            </div>     
-           )}
-              </div>
+            )}
+            </div>
             </div>
         )
     }
 
+    const largeImages = photos?.map(image => ({
+            url: image?.photos?.larger,
+            title: user?.name
+    }));
+
     const images = photos?.map((obj, i) => (
-        <div className="col-md-3" key={i}>
-        <div className="photo">
+        <div className="photo" key={i} onClick={() => handleOpenImage(i)}
+        style={{cursor: 'pointer'}}
+        >
         <Image 
          src={obj?.photos?.xsmall}
         className="img-fluid"
@@ -43,17 +58,22 @@ export default function Photos({loading}) {
         height={150}
         />
         </div>
-         </div>
      ))
 
     return (
         <div>
-        <div className="row">
-            {images}
+        {viewImages && <Lightbox 
+        images={largeImages} 
+        onClose={handleCloseImage}
+        zoomStep={1}
+        startIndex={startIndex}
+        />}
+        <div className="photos">
+       {images}
         </div>
             <div className="row">
            {user?.username === authUser?.username && (
-            <div className="col-md-2 mx-auto mt-3">
+            <div className="col-md-2 mx-auto mt-3 text-center">
                 <div>
                     <ImageUpload btn="photo-upload"/>
                 </div>

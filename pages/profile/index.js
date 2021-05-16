@@ -1,23 +1,45 @@
 import React from 'react';
 import * as Imports from 'components/Imports';
+import Welcome from 'components/profile/Welcome';
+import InfiniteScroll from 'components/profile/InfiniteScroll';
 
 
 
 
  function Index() {
+    const [show, setShow] = React.useState(true);
+    const [hasMore, setHasMore] = React.useState(true);
+    const {authUser, users, usersPag} = Imports.useSelector(Imports.usersSelector);
+    
+   const cookies = new Imports.Cookies();
+    const userCards = users?.map((user, i) => (<Imports.UserCard user={user} key={i}/>))
     const dispatch = Imports.useDispatch();
-    const [loading, setLoading] = React.useState();
-    const {authUser, users} = Imports.useSelector(Imports.usersSelector);
 
-  const userCards = users?.map((user, i) => (<Imports.UserCard user={user} key={i}/>))
-   
+
+
+  const fetchMore = () => {
+      if(users?.length >= usersPag?.total){
+          setHasMore(false)
+          return;
+         }
+         dispatch(Imports.getUsers({url: `/api/clients?page=${usersPag?.current_page + 1}`, cookie: cookies.get("token")}));
+        }
+
     return (
         <Imports.Layout>
+        {cookies.get("info") && show && (
+            <Welcome user={authUser} setShow={setShow}/>
+        )}
         <div className="container feed">
             <div className="user-cards">
-                {userCards}
+            <InfiniteScroll 
+            items={userCards}
+            dataLength={users?.length}
+            hasMore={hasMore}
+            fetchMore={fetchMore}
+             />
              </div>
-        </div>
+         </div>
         </Imports.Layout>
     )
 }

@@ -5,6 +5,10 @@ import errorsReducer from 'store/slices/errorsSlice';
 import adminsReducer from 'store/slices/adminSlice'; 
 import messagesReducer from 'store/slices/messagesSlice'; 
 import usersReducer from 'store/slices/usersSlice'; 
+import notificationsReducer from 'store/slices/notificationsSlice'; 
+import viewsReducer from 'store/slices/viewsSlice'; 
+import likesReducer from 'store/slices/likesSlice'; 
+import friendsReducer from 'store/slices/friendsSlice'; 
 import { HYDRATE, createWrapper } from 'next-redux-wrapper';
 
 
@@ -20,7 +24,11 @@ const rootReducer = combineReducers({
                    errors: errorsReducer,
                    admins: adminsReducer,
                    messages: messagesReducer,
-                   users: usersReducer
+                   users: usersReducer,
+                   notifications: notificationsReducer,
+                   views: viewsReducer,
+                   likes: likesReducer,
+                   friends: friendsReducer
                   });
 
                   /**

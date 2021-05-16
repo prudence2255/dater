@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaUserAlt, FaBars, FaPowerOff,
+import {FaUserAlt, FaBars, FaPowerOff, FaUserPlus,
     FaMobileAlt, FaMoneyCheckAlt, FaCamera,
     FaUserFriends, FaEnvelope, FaHeart, FaAngleLeft
 } from 'react-icons/fa';
@@ -11,6 +11,19 @@ import {BsEyeFill, BsInfoCircle, BsArrowDownShort} from 'react-icons/bs';
 import {BiEdit } from 'react-icons/bi';
 import {GiThreeFriends} from 'react-icons/gi';
 import {GrEmoji} from 'react-icons/gr';
+
+
+
+export const AddFriendIcon = () => {
+    return (
+        <>
+    <FaUserPlus
+        title="Add friend"
+    />
+        </>
+    )
+}
+
 
 
 export const DownloadIcon = () => {
@@ -213,7 +226,7 @@ export const MessageIcon = ({size}) => {
     return (
         <>
             <MdMessage
-                title="messages"
+                title="message user"
                 size={size}
             />
         </>
@@ -235,7 +248,7 @@ export const LikeIcon = ({size}) => {
     return (
         <>
             <FaHeart
-                title="likes"
+                title="like user"
                 size={size}
             />
         </>

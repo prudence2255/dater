@@ -1,0 +1,26 @@
+
+.notifications{
+    .card-header{
+        border-top: 8px solid $teal;
+    }
+
+    .modal-content{
+     border-top: 8px solid $teal;
+    }
+
+    .notification-card{
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+    }
+
+    .notification-card-img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .notification-card:hover{
+        background-color: $gray-600;
+    }
+}

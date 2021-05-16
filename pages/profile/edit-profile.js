@@ -9,7 +9,7 @@ function EditProfile() {
         <Imports.Layout>
           <Notifications options={{zIndex: 200, top: '50px'}}/>
         <div className="container">
-            <div className="edit-profile w3-card">
+            <div className="edit-profile">
                 <div className="basic-info">
                     <h5>Basic Info</h5>
                     <BasicInfoForm />

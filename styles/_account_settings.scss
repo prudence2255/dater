@@ -1,0 +1,40 @@
+.account-settings{
+
+    input{
+        border: 1px solid $gray-300!important;
+    }
+    .card{
+        background-color: white;
+        color: $gray-800;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .action-btns{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+    
+    .save-btn{
+        margin-right: 50px;
+        text-transform: uppercase;
+        padding: 10px;
+        background-color: $primary;
+        color: $gray-200;
+        width: 100px;
+    }
+
+    .save-btn:hover{
+        background-color: $gray-700;
+        color: $gray-100;
+        }
+        
+        .cancel-btn{
+            text-transform: uppercase;
+            background-color: $gray-300;
+            width: 100px;
+            padding: 10px;
+        }
+}

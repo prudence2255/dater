@@ -1,12 +1,15 @@
 import Router from 'next/router';
 import 'styles/w3.css';
-import 'styles/app.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {wrapper} from 'store/store';
 import NProgress from 'nprogress';
 import "nprogress/nprogress.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'admin-lte/plugins/fontawesome-free/css/all.min.css';
+import 'admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
+import 'admin-lte/dist/css/adminlte.min.css';
+import 'styles/app.scss';
 
 if(typeof window !== 'undefined'){
 AOS.init();

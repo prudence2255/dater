@@ -1,0 +1,12 @@
+
+.card-loader{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .load{
+        width: 150px;
+        margin: 15px;
+    }
+}
