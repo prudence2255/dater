@@ -1,10 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 import * as Imports from 'components/Imports';
 import {getLikers} from 'store/actions/likeAction';
 import {likesSelector} from 'store/slices/likesSlice';
 
 function Likes() {
     const {likers} = Imports.useSelector(likesSelector);
+    const {status} = Imports.useSelector(Imports.loadersSelector);
+    const {authUser} = Imports.useSelector(Imports.usersSelector);
    const userCards = likers?.map((user, i) => (<Imports.UserCard user={user} key={i}/>))
     
     return (
@@ -21,6 +24,18 @@ function Likes() {
         </div>
 
          </div>
+             {likers?.length === 0 && status === 'succeeded' && (
+                 <div className="row no-results">
+                <div className="col-md-6 mx-auto text-center">
+                  <p>Your likes list is empty! Improve your profile, upload good looking pictures to attract
+                  more likes and conversations
+                  </p>
+                  <Link href="/profile/[username]" as={`/profile/${authUser?.username}`}>
+                      <a className="no-results-link">Go to profile</a>
+                  </Link>
+                </div>
+                </div>
+            )}
             <div className="user-cards">
                 {userCards}
              </div>

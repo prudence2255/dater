@@ -1,14 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
 import {useSelector} from 'react-redux';
 import * as Imports from 'components/Imports';
 import {viewsSelector} from 'store/slices/viewsSlice';
 import {getViews} from 'store/actions/viewAction';
 
 
- function Views() {
-
+function Views() {
+const {authUser} = Imports.useSelector(Imports.usersSelector);
 const {views} = useSelector(viewsSelector);
-
+const {status} = Imports.useSelector(Imports.loadersSelector);
 const userCards = views?.map((user, i) => (<Imports.UserCard user={user} key={i}/>))
     
     return (
@@ -18,13 +19,27 @@ const userCards = views?.map((user, i) => (<Imports.UserCard user={user} key={i}
             <div className="info-box mb-3">
             <span className="info-box-icon bg-primary elevation-1"><i className="far fa-eye" /></span>
             <div className="info-box-content">
-            <span className="info-box-text">Likes</span>
+            <span className="info-box-text">Views</span>
             <span className="info-box-number">{views?.length}</span>
             </div>
             {/* /.info-box-content */}
             </div>
 
              </div>
+
+             {views?.length === 0 && status === 'succeeded' && (
+                 <div className="row no-results">
+                <div className="col-md-6 mx-auto text-center">
+                  <p>You don't have any views! Improve your profile, upload good looking pictures to attract
+                  more views and conversations
+                  </p>
+                  <Link href="/profile/[username]" as={`/profile/${authUser?.username}`}>
+                      <a className="no-results-link">Go to profile</a>
+                  </Link>
+                </div>
+                </div>
+            )}
+
             <div className="user-cards">
                 {userCards}
              </div>

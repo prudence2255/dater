@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import * as imports from 'components/Imports';
+import ActiveLink from 'components/ActiveLink';
 
 
 export default function SideBar() {
@@ -44,37 +45,37 @@ export default function SideBar() {
 
          
           <li className="nav-item">
-           <Link href="/profile">
+           <ActiveLink href="/profile" activeClassName="active-link">
            <a className="nav-link">
               <i className="nav-icon fas fa-users" />
               <p>
                Meet Friends
               </p>
             </a>
-           </Link>
+           </ActiveLink>
           </li>
           <li className="nav-item">
-           <Link href={`/profile/[username]`} as={`/profile/${username}`}>
+           <ActiveLink href={`/profile/[username]`} as={`/profile/${username}`} activeClassName="active-link">
            <a className="nav-link">
               <i className="nav-icon far fa-user" />
               <p>
                View Profile
               </p>
             </a>
-           </Link>
+           </ActiveLink>
           </li>
           <li className="nav-item">
-           <Link href="/profile/account-settings">
+           <ActiveLink href="/profile/account-settings" activeClassName="active-link">
            <a className="nav-link">
               <i className="nav-icon fas fa-cog" />
               <p>
               Account Settings
               </p>
             </a>
-           </Link>
+           </ActiveLink>
           </li>
           <li className="nav-item">
-          <Link href="/profile/messages">
+          <ActiveLink href="/profile/messages" activeClassName="active-link">
           <a className="nav-link">
               <i className="nav-icon fas fa-envelope" />
               <p>
@@ -83,10 +84,10 @@ export default function SideBar() {
                
               </p>
             </a>
-          </Link>  
+          </ActiveLink>  
           </li>
           <li className="nav-item">
-          <Link href="/profile/notifications">
+          <ActiveLink href="/profile/notifications" activeClassName="active-link">
           <a className="nav-link">
               <i className="nav-icon far fa-bell" />
               <p>
@@ -95,10 +96,10 @@ export default function SideBar() {
                
               </p>
             </a>
-          </Link>  
+          </ActiveLink>  
           </li>
           <li className="nav-item">
-          <Link href="/profile/views">
+          <ActiveLink href="/profile/views" activeClassName="active-link">
           <a className="nav-link">
               <i className="nav-icon far fa-eye" />
               <p>
@@ -107,10 +108,10 @@ export default function SideBar() {
                
               </p>
             </a>
-          </Link>  
+          </ActiveLink>  
           </li>
           <li className="nav-item">
-          <Link href="/profile/likes">
+          <ActiveLink href="/profile/likes" activeClassName="active-link">
           <a className="nav-link">
               <i className="nav-icon far fa-heart" />
               <p>
@@ -119,10 +120,10 @@ export default function SideBar() {
                
               </p>
             </a>
-          </Link>  
+          </ActiveLink>  
           </li>
           <li className="nav-item">
-          <Link href="/profile/friend-requests">
+          <ActiveLink href="/profile/friend-requests" activeClassName="active-link">
           <a className="nav-link">
               <i className="nav-icon fas fa-user-plus" />
               <p>
@@ -131,7 +132,7 @@ export default function SideBar() {
                
               </p>
             </a>
-          </Link>  
+          </ActiveLink>  
           </li>
         </ul>
       </nav>

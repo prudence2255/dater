@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {useSelector} from 'react-redux';
 import * as Imports from 'components/Imports';
 import MessageCard from 'components/profile/MessageCard';
@@ -20,9 +21,11 @@ const MessageInput = dynamic(
  function Messages() {
  const [showMessages, setShowMessages] = React.useState(false);
  const [preview, setPreview] = React.useState(false);
+ const {status} = Imports.useSelector(Imports.loadersSelector);
 
  const {authUser} = Imports.useSelector(Imports.usersSelector);
  const {thread, threads} = useSelector(messagesSelector);
+
  const router = Imports.useRouter();
  const dispatch = Imports.useDispatch();
 const {mid} = router.query;
@@ -107,6 +110,19 @@ return (
                 <div className="message-list w3-card">
                {threadWithMessages}
                 </div>
+
+                {threads?.length === 0 && status === 'succeeded' && (
+                 <div className="row no-results">
+                <div className="col-md-6 mx-auto text-center">
+                  <p>You don't have any messages! meet friends and start chatting
+                  </p>
+                  <Link href="/profile">
+                      <a className="no-results-link">Meet friends</a>
+                  </Link>
+                </div>
+                </div>
+                )}
+
                 <div className={`message-body ${preview ? 'add-z-index': ''}
                 ${showMessages ? 'show-message-modal': ''}`}>
                    <MessageBody thread={thread} setShowMessages={setShowMessages}

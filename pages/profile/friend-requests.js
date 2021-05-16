@@ -1,11 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
 import * as Imports from 'components/Imports';
 import FriendRequestCard from 'components/profile/FriendRequestCard';
 import { getFriendRequests } from 'store/actions/friendActions';
 import {friendsSelector} from 'store/slices/friendsSlice';
 
+
  function FriendRequests() {
     const {friendRequests} = Imports.useSelector(friendsSelector);
+    const {status} = Imports.useSelector(Imports.loadersSelector);
+    
 
    const userCards = friendRequests?.map((user, i) => (<FriendRequestCard user={user} key={i}/>))
        
@@ -23,6 +27,17 @@ import {friendsSelector} from 'store/slices/friendsSlice';
                 </div>
 
                 </div>
+                {friendRequests?.length === 0 && status === 'succeeded' && (
+                 <div className="row no-results">
+                <div className="col-md-6 mx-auto text-center">
+                  <p>Your friend requests list is empty!</p>
+                  <Link href="/profile">
+                      <a className="no-results-link">Meet new friends</a>
+                  </Link>
+                </div>
+                </div>
+                )}
+       
                <div className="user-cards">
                    {userCards}
                 </div>
