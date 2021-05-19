@@ -8,7 +8,7 @@ export default function InfiniteScroller({dataLength, fetchMore, hasMore, items}
           dataLength={dataLength}
           next={fetchMore}
           hasMore={hasMore}
-          loader={ <SpinnerLoader /> }
+          loader={items?.length >= 10 && <SpinnerLoader /> }
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>

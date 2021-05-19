@@ -32,12 +32,11 @@ export default function SideBar() {
     
     {/* Sidebar */}
     <div className="sidebar">
-      {/* Sidebar user panel (optional) */}
       <div className="user-panel-box" style={{
         backgroundImage: `url(${profile_pictures?.photos?.xsmall ?? `/male-avatar.png`})`
       }}> 
+      <span>{authUser?.first_name}</span>
       </div>
-      {/* Sidebar Menu */}
       <nav className="mt-2">
         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           {/* Add icons to the links using the .nav-icon class
