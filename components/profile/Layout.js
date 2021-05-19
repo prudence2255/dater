@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'components/profile/Header';
 import Sidebar from 'components/profile/Sidebar';
-import * as imports from 'components/Imports';
+
 
 export default function Layout({children}) {
   
