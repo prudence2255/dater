@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import ImageUpload from 'components/profile/ImageUpload';
 import * as Imports from 'components/Imports';
 import {CardLoader} from 'components/Loaders';
@@ -51,11 +50,11 @@ export default function Photos({loading}) {
         <div className="photo" key={i} onClick={() => handleOpenImage(i)}
         style={{cursor: 'pointer'}}
         >
-        <Image 
+        <img 
          src={obj?.photos?.xsmall}
         className="img-fluid"
-        width={150}
-        height={150}
+        width="150"
+        height="150"
         />
         </div>
      ))

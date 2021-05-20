@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Imports from 'components/Imports';
-import Image from 'next/image';
 import About from 'components/profile/About';
 import Photos from 'components/profile/Photos';
 import Friends from 'components/profile/Friends';
@@ -49,10 +48,10 @@ import VisitorActions from 'components/profile/VisitorActions';
                      <ImageUpload btn="profile_pic"/>
                     </div>
                     )}
-                    <Image className="card-img-top img-fluid profile-info-pic"
+                    <img className="card-img-top img-fluid profile-info-pic"
                      src={profilePic?.medium ?? '/male-avatar.png'} alt="profile picture" 
-                        width={100}
-                        height={300}
+                        width="100"
+                        height="300"
                     />
                     <div className="card-body d-flex justify-content-around">
                      <div>
