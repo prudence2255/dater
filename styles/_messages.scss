@@ -183,7 +183,7 @@
         }
 
         .message-input-contents div{
-            margin: 0px 10px;
+            margin: 0px 7px;
         }
 
         .message-input-box{
@@ -193,7 +193,7 @@
         .message-input{
             height: 50px;
             width: 100%; 
-            margin: 0px 15px;
+            margin: 0px 10px;
             max-height: 100px;
             border-radius: 50px;
             background-color: white;
@@ -242,33 +242,16 @@
             cursor: pointer; 
           }
 
-
-          .message-text .img-prev-modal{
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.9)!important; 
-          }
-
           .message-text .modal-img{
               width: 100%;
           }
 
-          .message-text .show-large-img{
-            display: block;
-          }
+         
 
           .add-z-index{
               z-index: 999;
           }
 
-          .img-prev-modal .close{
-            position: absolute;
-            top: 50px;
-            right: 50px;
-            font-size: 30px;
-            font-weight: bold;
-            color: $gray-100;
-            cursor: pointer;
-          }
 
          .message-text .download-btn{
             background-color: green;

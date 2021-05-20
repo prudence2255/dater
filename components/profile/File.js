@@ -1,19 +1,19 @@
 import React from 'react';
 import {CloseIcon, DownloadIcon} from 'components/Icons';
+import Lightbox from "react-awesome-lightbox";
 
 
 export default function Files({file, url, i, preview, setPreview}) {
-const [index, setIndex] = React.useState();
+const [lightBox, setLightBox] = React.useState();
 
-
-    const handlePreview = (index) => {   
-                setIndex(index)
+    const handlePreview = () => {  
                  setPreview(true)
+                 setLightBox(true)
             }
 
     const handleClose = () => {
     setPreview(false)
-    setIndex(null)
+    setLightBox(false);
     }
 
     let fileElement;
@@ -21,15 +21,11 @@ const [index, setIndex] = React.useState();
             fileElement = (
                 <div className="img-el">
                 <a href={url} className="btn download-btn" download><DownloadIcon /></a>
-                <img src={url} className="img-fluid message-img" onClick={() => handlePreview(i)}/>
-                 <div className={`w3-modal img-prev-modal ${preview && i === index ? 'show-large-img':''}`}>
-                 <span className="close" onClick={handleClose}><CloseIcon /></span>
-                <div className="w3-modal-content w3-animate-zoom">
-                <div>
-                <img src={url} className="img-fluid modal-img"/>
-                </div>
-                 </div>
-                 </div>
+                <img src={url} className="img-fluid message-img" onClick={handlePreview}/>
+               {lightBox &&  <Lightbox image={url} title="Image" 
+                            onClose={handleClose}
+                            zoomStep={1}
+                            />}
                 </div>
             )
         }else if(file?.type?.includes("video")){

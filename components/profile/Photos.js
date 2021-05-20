@@ -3,7 +3,7 @@ import ImageUpload from 'components/profile/ImageUpload';
 import * as Imports from 'components/Imports';
 import {CardLoader} from 'components/Loaders';
 import Lightbox from "react-awesome-lightbox";
-import "react-awesome-lightbox/build/style.css";
+
 
 export default function Photos({loading}) {
     const [viewImages, setViewImages] = React.useState(null);
