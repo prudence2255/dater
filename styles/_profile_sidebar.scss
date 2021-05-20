@@ -1,5 +1,7 @@
 .main-sidebar{
    padding-bottom: 50px!important;
+   overflow-y: scroll;
+   overflow-x: hidden;
    .user-panel-box{
     background-position: center; 
     background-repeat: no-repeat; 
@@ -19,3 +21,20 @@
      margin: 7px 0px!important;
   }
 }
+
+@media(max-width: 992px){
+  .hide-sidebar{
+    display: none!important;
+  }
+}
+
+ .main-sidebar::-webkit-scrollbar{
+  width: 8px;
+  background-color: inherit;
+  }
+  
+.main-sidebar::-webkit-scrollbar-thumb{
+      background-color: $gray-700;
+      border-radius: 0 8px 8px 0;
+      min-height: 50px;
+  }

@@ -27,6 +27,17 @@ body {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar{
+  width: 10px;
+  background-color: inherit;
+  }
+  
+::-webkit-scrollbar-thumb{
+      background-color: $gray-500;
+      border-radius: 8px;
+      min-height: 50px;
+  }
+
 *{
   box-sizing: border-box;
   font-family: 'OPen sans', 'Times New Roman', Times, serif;
@@ -235,4 +246,8 @@ input:focus {
     width: 80%;
   }
   
+}
+
+.zIndex{
+  z-index: 0!important;
 }

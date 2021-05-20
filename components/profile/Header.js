@@ -39,6 +39,13 @@ const dispatch = A.useDispatch();
       router.push({pathname: '/profile/[username]', query: { username: authUser?.username }});
     }
 
+    const handleShow = () => {
+      const sidebar = document.querySelector(".main-sidebar");
+      if(sidebar.classList.contains('hide-sidebar')){
+        sidebar.classList.remove('hide-sidebar');
+      }
+    }
+
     return (
         <>
          <Notifications options={{zIndex: 200, top: '50px'}}/>
@@ -46,11 +53,11 @@ const dispatch = A.useDispatch();
         {errors && <A.ShowError />}
 
         {/* Navbar */}
-    <nav className="main-header navbar navbar-expand navbar-teal navbar-dark">
+    <nav className="main-header navbar navbar-expand navbar-teal navbar-dark ">
     {/* Left navbar links */}
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
+        <a className="nav-link" data-widget="pushmenu" href="#" role="button" onClick={handleShow}><i className="fas fa-bars" /></a>
       </li>
     </ul>
     {/* Right navbar links */}

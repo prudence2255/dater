@@ -6,9 +6,16 @@ import Lightbox from "react-awesome-lightbox";
 export default function Files({file, url, i, preview, setPreview}) {
 const [lightBox, setLightBox] = React.useState();
 
+const header = document.querySelector(".main-header");
+const messageHeader = document.querySelector(".message-header");
+const sidebar = document.querySelector(".main-sidebar");
+
     const handlePreview = () => {  
                  setPreview(true)
                  setLightBox(true)
+                 header.classList.add("zIndex");
+                 messageHeader.classList.add("zIndex");
+                 sidebar.classList.add("zIndex");
             }
 
     const handleClose = () => {

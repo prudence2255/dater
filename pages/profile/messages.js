@@ -81,7 +81,7 @@ return (
         <div className={`message-input-container ${showMessages ? 'show-message-input': ''}`}>
                 <MessageInput thread={thread} mid={mid}/>
         </div>
-        <div className={`message-header w3-card-2 d-flex ${showMessages ? 'show-message-header': ''}`}>
+        <div className={`message-header w3-card-2 d-flex ${showMessages ? 'show-message-header': ''} `}>
                 <button onClick={() => setShowMessages(false)} >
                     <LeftAngleIcon size="30"       
                     />
