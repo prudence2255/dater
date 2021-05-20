@@ -97,12 +97,6 @@
         margin: 15px;
     }
 
-    @media(max-width: 992px){
-        .user-card{
-            width: 30%;
-        }
-    
-    }
 
     @media(max-width: 768px){
         .user-card{
@@ -114,7 +108,7 @@
 
     @media(max-width: 576px){
         .user-card{
-            width: 60%;
+            width: 80%;
         }
     
         .user-card-img{

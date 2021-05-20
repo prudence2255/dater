@@ -54,7 +54,7 @@ const dispatch = A.useDispatch();
       </li>
     </ul>
     {/* Right navbar links */}
-    <ul className="navbar-nav ml-auto">
+    <ul className="navbar-nav ml-auto navbar-dropdown">
       {/* Notifications Dropdown Menu */}
       <li className="nav-item dropdown">
         <a className="nav-link" data-toggle="dropdown" href="#">

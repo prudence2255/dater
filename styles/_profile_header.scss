@@ -9,4 +9,8 @@
          a:hover{
              color: $gray-200!important;
          }
+
+       .navbar-dropdown{
+           z-index: 9999;
+       }  
      }   

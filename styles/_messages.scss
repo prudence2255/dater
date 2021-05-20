@@ -288,7 +288,7 @@
           }
 
 
-        @media(max-width: 990px){
+        @media(max-width: 992px){
             .message-list{ 
                left: auto;
                right: auto;
@@ -358,11 +358,11 @@
         }
 
         
-        @media(max-width: 512px){
-            .message-list{ 
-               left: auto;
-               right: auto;
-               width: 80%;
+        @media(max-width: 576px){
+            .message-list, .message-body, .message-input-container{ 
+               left: 0;
+               right: 0;
+               width: 100%;
             }
 
            
@@ -442,13 +442,13 @@
               }
            
          
-             @media(max-width: 990px){
+             @media(max-width: 992px){
                  .w3-modal-content{
                      width: 60%;
                  }
              }
 
-             @media(max-width: 512px){
+             @media(max-width: 576px){
                 .w3-modal-content{
                     width: 80%;
                 }
