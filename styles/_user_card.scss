@@ -71,6 +71,7 @@
     }
 }
 
+
 .user-cards{
         display: flex;
         flex-direction: row;
@@ -96,25 +97,30 @@
         margin: 15px;
     }
 
-    @media(max-width: 991px){
+    @media(max-width: 992px){
         .user-card{
-            width: 150px;
+            width: 30%;
         }
+    
+    }
 
+    @media(max-width: 768px){
+        .user-card{
+            width: 40%;
+        }
+    
+    }
+
+
+    @media(max-width: 576px){
+        .user-card{
+            width: 60%;
+        }
+    
         .user-card-img{
-            height: 120px;
+            height: 200px;
         }
-    
-        .user-cards{
-            justify-content: center;    
-        }
+
     }
 
     
-    @media(max-width: 512px){
-        .user-cards{
-            justify-content: center;
-            
-        }
-    
-    }

@@ -22,6 +22,7 @@ export default function SideBar() {
         <>
 {/* Main Sidebar Container */}
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
+    <div className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></div>
     {/* Brand Logo */}
     <Link href="/profile">
     <a className="brand-link">

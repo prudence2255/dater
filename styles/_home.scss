@@ -110,6 +110,7 @@
         }
     }
 
+
   .info{
       line-height: 30px;
       text-align: center;
@@ -118,6 +119,7 @@
     text-transform: capitalize;
   }
 
+
   .info h2{
      color: $primary;
       font-size: 80px;
@@ -125,15 +127,19 @@
       margin-bottom: 30px;
   }
 
-  .info p{
-     // text-align: left;
-      font-size: 18px;
-  }
 
   footer{
       width: 100%;
       height: 200px;
       border-top: 3px solid $primary-2;
       margin-top: 20px;
+  }
+
+  @media(max-width: 576px){
+      .info{
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+      }
   }
 }
