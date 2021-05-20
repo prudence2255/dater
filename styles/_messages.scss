@@ -295,7 +295,7 @@
                padding-top: 70px;
                width: 60%;
             }
-
+           
         // .show-message-header{
         //          position: absolute;
         //         z-index: 9999;
@@ -306,7 +306,7 @@
 
 
         .message-header{
-               z-index: 2;
+               z-index: 1;
                width: 100%;
                right: 0;
                top: 50px;
@@ -330,12 +330,12 @@
         .show-message-modal{
                 display: block;
                 z-index: 1;
-                top: 60px;
+                top: 100px;
                 width: 80%;
                 bottom: 0;
                // right: 30px;
                 left: 10%;
-                padding-top: 70px;
+                padding-top: 30px;
             }
 
     
