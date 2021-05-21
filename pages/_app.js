@@ -25,7 +25,7 @@ Router.events.on('routeChangeComplete', () => {
   NProgress.done();
   if(typeof window !== 'undefined'){
     const sidebar = document.querySelector(".main-sidebar");
-    sidebar.classList.add('hide-sidebar');
+    sidebar?.classList.add('hide-sidebar');
     }
 })
 

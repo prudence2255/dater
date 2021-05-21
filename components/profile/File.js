@@ -14,19 +14,19 @@ const homeHeader = document.querySelector(".home-header");
     const handlePreview = () => {  
                  setPreview(true)
                  setLightBox(true)
-                 header.classList.add("zIndex");
-                 messageHeader.classList.add("zIndex");
-                 sidebar.classList.add("zIndex");
-                 homeHeader.classList.add("zIndex");
+                 header?.classList.add("zIndex");
+                 messageHeader?.classList.add("zIndex");
+                 sidebar?.classList.add("zIndex");
+                 homeHeader?.classList.add("zIndex");
             }
 
     const handleClose = () => {
     setPreview(false)
     setLightBox(false);
-     header.classList.remove("zIndex");
-    messageHeader.classList.remove("zIndex");
-    sidebar.classList.remove("zIndex");
-     homeHeader.classList.remove("zIndex");
+     header?.classList.remove("zIndex");
+    messageHeader?.classList.remove("zIndex");
+    sidebar?.classList.remove("zIndex");
+     homeHeader?.classList.remove("zIndex");
     }
 
 
