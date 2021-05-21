@@ -61,15 +61,15 @@ import * as actions from 'components/Imports';
   },
   
   extraReducers: {
-    [actions.getThreads.fulfilled]: (state, action) => {
+    [actions.getThreads?.fulfilled]: (state, action) => {
       state.threads = action.payload.data.data;
     },
 
-    [actions.addThread.fulfilled]: (state, action) => {
+    [actions.addThread?.fulfilled]: (state, action) => {
      state.threads = [action.payload.data.data, ...state.threads];
     },
 
-    [actions.updateThread.fulfilled]: (state, action) => {
+    [actions.updateThread?.fulfilled]: (state, action) => {
     
       const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.data.id);
       const newThreads = [...state.threads]   
@@ -78,7 +78,7 @@ import * as actions from 'components/Imports';
        state.thread = newThreads[threadIndex];
      },
   
-     [actions.getThread.fulfilled]: (state, action) => {
+     [actions.getThread?.fulfilled]: (state, action) => {
       const threadIndex = state.threads.findIndex((thread) => thread.id === action.payload.data.data.id);
       const newThreads = [...state.threads]   
        newThreads[threadIndex] = Object.assign({}, newThreads[threadIndex], action.payload.data.data)

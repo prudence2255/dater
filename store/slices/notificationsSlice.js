@@ -22,7 +22,7 @@ import {getNotifications} from 'store/actions/notificationAction';
   },
 
   extraReducers: {
-     [getNotifications.fulfilled]: (state, action) => {
+     [getNotifications?.fulfilled]: (state, action) => {
       state.notifications = action.payload.data;
     },
 

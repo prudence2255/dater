@@ -16,7 +16,7 @@ import {getViews} from 'store/actions/viewAction';
   reducers: {  },
 
   extraReducers: {
-     [getViews.fulfilled]: (state, action) => {
+     [getViews?.fulfilled]: (state, action) => {
       state.views = action.payload.data.data;
     },
 

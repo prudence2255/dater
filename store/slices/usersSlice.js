@@ -41,25 +41,25 @@ const countries = locations?.data.map((location) => location.country)
     }
   },
   extraReducers: {
-     [login.fulfilled]: (state, action) => {
+     [login?.fulfilled]: (state, action) => {
       cookies.set('token', action.payload.data.token, {path: '/', maxAge: 315360000})
      },
     
-     [logout.fulfilled]: (state) => {
+     [logout?.fulfilled]: (state) => {
       cookies.remove('token', {path: '/'}); 
       state = {}
      },
 
-     [register.fulfilled]: (state, action) => {
+     [register?.fulfilled]: (state, action) => {
       cookies.set('info', action.payload.data.welcome.data?.info, {path: '/', maxAge: 315360000})
       cookies.set('token', action.payload.data.token, {path: '/', maxAge: 315360000})
      },
 
-     [uploadProfilePic.fulfilled]: (state, action) => {
+     [uploadProfilePic?.fulfilled]: (state, action) => {
      console.log('hi');
      },
   
-     [authUser.fulfilled]: (state, action) => {
+     [authUser?.fulfilled]: (state, action) => {
      state.authUser = action.payload.data.user;
      state.new_messages_count = action.payload.data.new_messages_count;
      state.new_notifications_count = action.payload.data.new_notifications_count;
@@ -69,28 +69,28 @@ const countries = locations?.data.map((location) => location.country)
      state.new_friends_count = action.payload.data.new_friends_count
      },
 
-    [getUser.fulfilled]: (state, action) => {
+    [getUser?.fulfilled]: (state, action) => {
       state.user = action.payload.data;
       state.profilePic = action.payload.data?.profile_pictures?.photos ?? {}
       },
 
-     [updateUser.fulfilled]: (state, action) => {
+     [updateUser?.fulfilled]: (state, action) => {
         state.authUser = action.payload.data;
       },
       
-   [uploadProfilePic.fulfilled]: (state, action) => {
+   [uploadProfilePic?.fulfilled]: (state, action) => {
         state.profilePic = action.payload.data;
    },
 
-   [photoUpload.fulfilled]: (state, action) => {
+   [photoUpload?.fulfilled]: (state, action) => {
     state.photos = [action.payload.data, ...state.photos];
   },
 
-   [getPhotos.fulfilled]: (state, action) => {
+   [getPhotos?.fulfilled]: (state, action) => {
     state.photos = action.payload.data;
   },
   
-  [getUsers.fulfilled]: (state, action) => {
+  [getUsers?.fulfilled]: (state, action) => {
     state.users =  [...state.users, ...action.payload.data.data];
     state.usersPag = action.payload.data.meta;
   }  

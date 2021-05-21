@@ -14,7 +14,7 @@ export default function Welcome({user, setShow}) {
     <div className="card w3-card-2">
       <div className="card-header">
         <h3 className="card-title text-center">Welcome {first_name}</h3>
-        <button type="button" className="close" onClick={handleClose}>
+        <button type="button" className="close text-dark" onClick={handleClose}>
           <span aria-hidden="true">×</span>
         </button>
       </div>

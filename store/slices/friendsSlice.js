@@ -26,31 +26,31 @@ import {getFriends, getFriendRequests, acceptFriendRequest,
    },
 
   extraReducers: {
-     [getFriends.fulfilled]: (state, action) => {
+     [getFriends?.fulfilled]: (state, action) => {
       state.friends = action.payload.data.data;
     },
 
-    [getFriendRequests.fulfilled]: (state, action) => {
+    [getFriendRequests?.fulfilled]: (state, action) => {
     state.friendRequests = action.payload.data.data;
     },
     
-    [myFriendRequests.fulfilled]: (state, action) => {
+    [myFriendRequests?.fulfilled]: (state, action) => {
       state.myFriendRequests = action.payload.data.data;
       },
 
-    [acceptFriendRequest.fulfilled]: (state, action) => {
+    [acceptFriendRequest?.fulfilled]: (state, action) => {
    // state.friendRequests = state.friendRequests.filter(req => req.id !== action.payload.id);
     },
    
-    [sendFriendRequest.fulfilled]: (state, action) => {
+    [sendFriendRequest?.fulfilled]: (state, action) => {
      //state.friends = state.friendRequests.filter(req => req.id !== action.payload.id);
      },
 
-    [rejectFriendRequest.fulfilled]: (state, action) => {
+    [rejectFriendRequest?.fulfilled]: (state, action) => {
      //state.friendRequests = state.friendRequests.filter(req => req.id !== action.payload.id);
     }, 
      
-    [getAuthUserFriends.fulfilled]: (state, action) => {
+    [getAuthUserFriends?.fulfilled]: (state, action) => {
         state.authUserFriends = action.payload.data.data;
       }, 
   }
