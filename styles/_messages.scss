@@ -348,8 +348,13 @@
                width: 100%;
             }
 
+
              .add-z-index{
                 z-index: 50000;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
             }
         }
 
