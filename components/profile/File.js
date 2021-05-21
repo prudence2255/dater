@@ -9,6 +9,7 @@ const [lightBox, setLightBox] = React.useState();
 const header = document.querySelector(".main-header");
 const messageHeader = document.querySelector(".message-header");
 const sidebar = document.querySelector(".main-sidebar");
+const messageList = document.querySelector(".message-list");
 
     const handlePreview = () => {  
                  setPreview(true)
@@ -16,6 +17,7 @@ const sidebar = document.querySelector(".main-sidebar");
                  header.classList.add("zIndex");
                  messageHeader.classList.add("zIndex");
                  sidebar.classList.add("zIndex");
+                 messageList.classList.add("zIndex");
             }
 
     const handleClose = () => {
@@ -24,6 +26,7 @@ const sidebar = document.querySelector(".main-sidebar");
      header.classList.remove("zIndex");
     messageHeader.classList.remove("zIndex");
     sidebar.classList.remove("zIndex");
+     messageList.classList.remove("zIndex");
     }
 
 
