@@ -36,7 +36,7 @@ export default function SideBar() {
       <div className="user-panel-box" style={{
         backgroundImage: `url(${profile_pictures?.photos?.xsmall ?? `/male-avatar.png`})`
       }}> 
-      <span>{authUser?.first_name}</span>
+      <span>{authUser?.first_name?.slice(0, 1)}{authUser?.last_name?.slice(0, 1)}</span>
       </div>
       <nav className="mt-2">
         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
