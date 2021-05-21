@@ -78,6 +78,8 @@ React.useEffect(() => {
 React.useEffect(() => {
 if(Object.keys(thread).length === 0 && mid){
     setNewThreadUser(user)
+}else{
+    setNewThreadUser(null);
 }
 }, [user?.first_name]);
 return (
