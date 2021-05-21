@@ -27,7 +27,12 @@ const index = () => {
     {loading && <imports.SpinLoader loading={loading}/>} 
       {errors && <imports.ShowError />}
       <Head>
-        <title>Create Next App</title>
+        <title>dater.com</title>
+          <meta name="og:description" content="
+          Dater.com is the The Best Social Network And Dating Site For Live Chatting 
+          And Finding New Friends. Virtually Meet Thousands Of Like-Minded Singles And Connect At Lightning Speed.
+          " />
+           <meta name="og:image" content="/home-img.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="home-header w3-card-4">

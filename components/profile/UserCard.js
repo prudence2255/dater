@@ -9,7 +9,7 @@ import {likesSelector} from 'store/slices/likesSlice';
 export default function UserCard({user}) {
     const [isLike, setIsLike] = React.useState(null)
     const {likes} = A.useSelector(likesSelector);
-    const {username, profile_pictures, first_name, city} = user;
+    const {username, profile_pictures, first_name, age} = user;
     const router = A.useRouter();
     const dispatch = A.useDispatch();
     const cookies = new A.Cookies();
@@ -55,7 +55,7 @@ export default function UserCard({user}) {
         <div className="card-body">
         <Link href={`/profile/[username]`} as={`/profile/${username}`}>
             <a>
-            <div className="user-name"><b>{first_name}</b>, {city} <span className="status"></span></div>
+            <div className="user-name"><b>{first_name}</b>, {age} <span className="status"></span></div>
             </a>
         </Link>
            <div className="user-icons">

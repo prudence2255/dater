@@ -3,6 +3,7 @@ import * as Imports from 'components/Imports';
 import About from 'components/profile/About';
 import Photos from 'components/profile/Photos';
 import Friends from 'components/profile/Friends';
+import Head from 'next/head';
 import {useRouter} from 'next/router';
 import ImageUpload from 'components/profile/ImageUpload';
 import { myFriendRequests, getFriends, getAuthUserFriends } from 'store/actions/friendActions';
@@ -38,6 +39,10 @@ import VisitorActions from 'components/profile/VisitorActions';
 
     return (
         <Imports.Layout>
+         <Head>
+            <title>{user?.first_name} | {user?.last_name} on dater.com</title>
+          <meta name="og:description" content={`${user?.self_summary}, find ${user?.first_name} on dater.com`} />
+        </Head>
         <div className="container main-profile bg-white">
             <div className="row no-gutters ">
                 <div className="col-md-4 basic-info pb-5">

@@ -20,10 +20,11 @@ const MessageInput = dynamic(
 
  function Messages() {
  const [showMessages, setShowMessages] = React.useState(false);
+ const [newThreadUser, setNewThreadUser] = React.useState(null);
  const [preview, setPreview] = React.useState(false);
  const {status} = Imports.useSelector(Imports.loadersSelector);
 
- const {authUser} = Imports.useSelector(Imports.usersSelector);
+ const {authUser, user} = Imports.useSelector(Imports.usersSelector);
  const {thread, threads} = useSelector(messagesSelector);
 
  const router = Imports.useRouter();
@@ -74,6 +75,11 @@ React.useEffect(() => {
     }
 }, [mid, newThreads[0]?.id]);
 
+React.useEffect(() => {
+if(Object.keys(thread).length === 0 && mid){
+    setNewThreadUser(user)
+}
+}, [user?.first_name]);
 return (
         <Imports.Layout>
         <div className="container-fluid">
@@ -90,6 +96,18 @@ return (
             {/**
             current thread user
              */}
+            {newThreadUser && (
+                <div className="current-thread-user mr-auto ml-auto">
+                <div className="mx-2">
+                <img 
+                src={user?.profile_pictures?.photos?.xsmall ?? `/male-avatar.png`}
+                  className="img-fluid message-header-img"  
+                />
+                </div>
+                <div className="mx-2 text-dark mt-3">{user?.first_name}</div>
+            </div>
+             ) }    
+
              {currentThread && (
                 <div className="current-thread-user mr-auto ml-auto">
                 <div className="mx-2">
