@@ -23,16 +23,21 @@ const sidebar = document.querySelector(".main-sidebar");
     setLightBox(false);
     }
 
+ const largeImage = [url]?.map(image => ({
+            url: image,
+            title: 'Image'
+    }));
+
     let fileElement;
         if(file?.type?.includes("image")){
             fileElement = (
                 <div className="img-el">
                 <a href={url} className="btn download-btn" download><DownloadIcon /></a>
                 <img src={url} className="img-fluid message-img" onClick={handlePreview}/>
-               {lightBox &&  <Lightbox image={url} title="Image" 
-                            onClose={handleClose}
-                            zoomStep={1}
-                            />}
+               {lightBox &&  <Lightbox  images={largeImage} 
+                    onClose={handleClose}
+                    zoomStep={1}
+                 />}
                 </div>
             )
         }else if(file?.type?.includes("video")){
