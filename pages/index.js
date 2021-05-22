@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Home from 'components/public/Home';
 import Login from 'components/profile/Login';
 import * as imports from 'components/Imports';
@@ -33,14 +34,20 @@ const index = () => {
           And Finding New Friends. Virtually Meet Thousands Of Like-Minded Singles And Connect At Lightning Speed.
           " />
            <meta name="og:image" content="/home-img.jpg" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/dater-fav-ico.png" />
       </Head>
       <div className="home-header w3-card-4">
       <Login loginModal={loginModal} setLoginModal={setLoginModal}/>
           <div className="container">
             <nav className="home-nav-items">
             <div className="dater-logo">
-              Logo
+              <Link href="/">
+                <a>
+                  <img src="/dater-fav-ico.png" alt="Dater.com"
+                    className="img-fluid img-circle" width="40" height="40"
+                  />
+                </a>
+              </Link>
             </div>
              <div>
              <span>Already a member?</span>

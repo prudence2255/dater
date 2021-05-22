@@ -26,7 +26,7 @@ export default function SideBar() {
     {/* Brand Logo */}
     <Link href="/profile">
     <a className="brand-link">
-      <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
+      <img src="/dater-fav-ico.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
       <span className="brand-text font-weight-light">Dater.com</span>
     </a>
     </Link>
