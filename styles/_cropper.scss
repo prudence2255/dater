@@ -241,6 +241,19 @@
     height: 15px;
     width: 15px;
   }
+
+  .cropper-container{
+    max-height: 400px;
+  }
+  
+  .cropper-wrap-box,
+  .cropper-canvas,
+  .cropper-drag-box,
+  .cropper-crop-box,
+  .cropper-modal{
+    max-height: 360px;
+  }
+
 }
 
 @media (min-width: 992px) {
