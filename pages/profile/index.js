@@ -31,6 +31,11 @@ import InfiniteScroll from 'components/profile/InfiniteScroll';
             <Welcome user={authUser} setShow={setShow}/>
         )}
         <div className="container feed">
+        <div className="col-md-8 mx-auto card">
+            <div className="card-header">
+                <h4>Best Matches</h4>
+            </div>
+        </div>
             <div className="user-cards">
             <InfiniteScroll 
             items={userCards}

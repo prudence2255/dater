@@ -323,7 +323,11 @@
 
     
             .add-z-index{
-                z-index: 5000;
+                z-index: 50000;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
             }
 
             .show-message-input{

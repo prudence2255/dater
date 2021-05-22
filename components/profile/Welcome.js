@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import * as Imports from 'components/Imports';
 export default function Welcome({user, setShow}) {
     
@@ -9,6 +10,14 @@ export default function Welcome({user, setShow}) {
       cookies.remove('info', {path: '/'});
       setShow(false) 
     }
+
+    Router.events.on('routeChangeComplete', () => {
+      if(typeof window !== 'undefined'){
+        cookies.remove('info', {path: '/'});
+        setShow(false)
+        }
+    })
+
     return (
     <div className={`welcome-dialog `}>
     <div className="card w3-card-2">
