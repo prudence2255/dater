@@ -32,10 +32,14 @@ export default function ImageUpload({btn}) {
 
 
   const handleSelect = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.add("zIndex");
       fileRef?.current?.click();
   }
 
   const handleSave = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.remove("zIndex");
     setLoading(true);
      cropper?.getCroppedCanvas()?.toBlob((blob) => {
       const formData = new FormData();
@@ -56,6 +60,8 @@ export default function ImageUpload({btn}) {
 
   
   const handleClose = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.remove("zIndex");
     setShowModal(false)
   }
 
@@ -81,7 +87,7 @@ export default function ImageUpload({btn}) {
           guides={true}
           background={false}
           responsive={true}
-          autoCropArea={0.8}
+          autoCropArea={1}
           checkOrientation={false} 
           onInitialized={(instance) => {
             setCropper(instance);
