@@ -19,17 +19,13 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  max-height: 65vh!important;
+  max-height: 62vh;
 }
 
 .cropper-container img {
   display: block;
-  height: 100%;
+  max-height: 60vh;
   image-orientation: 0deg;
-  max-height: none !important;
-  max-width: none !important;
-  min-height: 0 !important;
-  min-width: 0 !important;
   width: 100%;
 }
 
