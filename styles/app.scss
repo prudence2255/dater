@@ -158,6 +158,11 @@ button{
 
 }
 
+.w3-modal .w3-modal-content{
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
 .card-loader-flex{
   display: flex;
   //flex-direction: row;
@@ -192,7 +197,7 @@ button{
   border: 3px solid $primary;
   line-height: 30px;
   color: $gray-800;
-  height: 60vh;
+  max-height: 60vh;
 }
 
 .welcome-dialog .close{
