@@ -54,7 +54,7 @@ export default function Photos({loading}) {
          src={obj?.photos?.xsmall}
         className="img-fluid"
         width="150"
-        height="150"
+        height="160"
         />
         </div>
      ))
