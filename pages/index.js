@@ -30,10 +30,10 @@ const index = () => {
       {errors && <imports.ShowError />}
       <Head>
         <title>dater.com</title>
-        <meta property="og:title" content="Dater.com a Social Network And Dating Site For Live Chatting 
+        <meta property="og:title" content="A Social Network And Dating Site For Live Chatting 
           And Finding New Friends" />
           <meta name="og:description" content="
-          Dater.com is the The Best Social Network And Dating Site For Live Chatting 
+         The Best Social Network And Dating Site For Live Chatting 
           And Finding New Friends. Virtually Meet Thousands Of Like-Minded Singles And Connect At Lightning Speed.
           " />
            <meta name="og:image" content="/home-img.jpg" />
