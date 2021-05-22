@@ -11,12 +11,16 @@ export default function Welcome({user, setShow}) {
       setShow(false) 
     }
 
-    Router.events.on('routeChangeComplete', () => {
       if(typeof window !== 'undefined'){
+        const modal = document.querySelector(".welcome-dialog");
+       window.addEventListener('click', (e) => {
+       if(e.target === modal){
         cookies.remove('info', {path: '/'});
         setShow(false)
+       }
+       })
         }
-    })
+    
 
     return (
     <div className={`welcome-dialog `}>

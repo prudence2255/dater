@@ -196,6 +196,10 @@ button{
   overflow-y: scroll;
 }
 
+.welcome-dialog .close{
+  color: black!important;
+}
+
 .active-link{
   background-color: $blue;
 }
