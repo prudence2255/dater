@@ -1,6 +1,5 @@
 import React from 'react';
 import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
 import { CameraIcon, UploadIcon } from 'components/Icons';
 import * as A from 'components/Imports';
 
@@ -80,8 +79,6 @@ export default function ImageUpload({btn}) {
           src={image}
          viewMode={1}
           guides={true}
-          minCropBoxHeight={10}
-          minCropBoxWidth={10}
           background={false}
           responsive={true}
           autoCropArea={1}

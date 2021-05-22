@@ -1,5 +1,6 @@
 
 .image-upload{ 
+
    .show-modal{
         display: block;
         z-index: 999; 
@@ -16,7 +17,7 @@
         display: flex;
         justify-content: flex-end;
        padding: 10px;
-
+       height: 50px; 
     }
 
     .save-btn{
