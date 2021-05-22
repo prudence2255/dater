@@ -81,7 +81,7 @@ export default function ImageUpload({btn}) {
           guides={true}
           background={false}
           responsive={true}
-          autoCropArea={1}
+          autoCropArea={0.8}
           checkOrientation={false} 
           onInitialized={(instance) => {
             setCropper(instance);
