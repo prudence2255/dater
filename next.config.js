@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = {
     env: {
         APP_URL: process.env.NODE_ENV === 'development' ? 
-                                        'http://localhost:3000' : 'https://ecommerce-frontend-tau.vercel.app',
+                                        'http://localhost:3000' : 'https://bodyclaire.com',
                                         
         API_URL: process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'https://opportunitytent.com',
         APP_ID: '614109506161618',

@@ -14,6 +14,7 @@ const index = () => {
   const {errors} = imports.useSelector(imports.errorsSelector);
   const {loading} = imports.useSelector(imports.loadersSelector);
  
+  const APP_URL = process.env.APP_URL;
 
   const cookies = new imports.Cookies();
   const router = useRouter();
@@ -29,11 +30,15 @@ const index = () => {
       {errors && <imports.ShowError />}
       <Head>
         <title>dater.com</title>
+        <meta property="og:title" content="Dater.com a Social Network And Dating Site For Live Chatting 
+          And Finding New Friends" />
           <meta name="og:description" content="
           Dater.com is the The Best Social Network And Dating Site For Live Chatting 
           And Finding New Friends. Virtually Meet Thousands Of Like-Minded Singles And Connect At Lightning Speed.
           " />
            <meta name="og:image" content="/home-img.jpg" />
+           <meta property="og:url" content={`${APP_URL}/${router.asPath}`}/>
+           <link rel="canonical" href={`${APP_URL}/${router.asPath}`} />
         <link rel="icon" href="/dater-fav-ico.png" />
       </Head>
       <div className="home-header w3-card-4">
