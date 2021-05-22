@@ -81,7 +81,7 @@ export default function ImageUpload({btn}) {
       <div className="w3-modal-content w3-animate-zoom">
        <Cropper
           initialAspectRatio={1}
-          autoCrop={false}
+         // autoCrop={false}
           preview=".img-preview"
           src={image}
          viewMode={2}
