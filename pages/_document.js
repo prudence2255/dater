@@ -11,7 +11,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <script src="/default-plugins/jquery/jquery.min.js" />
             <script src="/default-plugins/bootstrap/js/bootstrap.bundle.min.js" />
             <script src="/default-plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" />
