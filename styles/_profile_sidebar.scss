@@ -13,7 +13,12 @@
     align-items: center;
     
     span{
-      visibility: hidden;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 25px;
+      font-weight: bolder;
+      color: $gray-100;
+      background-color: rgba(0, 0, 0, 0.5);
     }
    }
 

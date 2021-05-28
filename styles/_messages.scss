@@ -316,20 +316,23 @@
                 top: 100px;
                 width: 80%;
                 bottom: 0;
-               // right: 30px;
                 left: 10%;
                 padding-top: 30px;
             }
 
     
             .add-z-index{
-                z-index: 5000;
+                z-index: 50000;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
             }
 
             .show-message-input{
                width: 80%;
                left: 10%;
-               //right: 0;
              }
    
 
@@ -346,15 +349,6 @@
                left: 0;
                right: 0;
                width: 100%;
-            }
-
-
-             .add-z-index{
-                z-index: 50000;
-                bottom: 0;
-                top: 0;
-                right: 0;
-                left: 0;
             }
         }
 

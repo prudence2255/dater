@@ -15,6 +15,7 @@
 @import './notifications';
 @import './account_settings';
 @import './loaders';
+@import './cropper';
 
 
 
@@ -158,6 +159,7 @@ button{
 
 }
 
+
 .card-loader-flex{
   display: flex;
   //flex-direction: row;
@@ -192,6 +194,15 @@ button{
   border: 3px solid $primary;
   line-height: 30px;
   color: $gray-800;
+  max-height: 60vh;
+}
+
+.welcome-dialog .close{
+  color: brown!important;
+}
+
+.welcome-dialog .card-body{
+  overflow-y: scroll;
 }
 
 .active-link{

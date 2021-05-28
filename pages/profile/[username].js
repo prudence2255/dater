@@ -16,7 +16,7 @@ import VisitorActions from 'components/profile/VisitorActions';
     const router = useRouter();
     const {username} = router.query;
     const cookies = new Imports.Cookies();
-
+    const APP_URL = process.env.APP_URL;
     /**
      * get user photos
      */
@@ -40,8 +40,11 @@ import VisitorActions from 'components/profile/VisitorActions';
     return (
         <Imports.Layout>
          <Head>
-            <title>{user?.first_name} | {user?.last_name} on dater.com</title>
+            <title>{user?.first_name} {user?.last_name} on dater.com</title>
+            <meta property="og:title" content={`${user?.first_name} | ${user?.last_name} on dater.com`} />
           <meta name="og:description" content={`${user?.self_summary}, find ${user?.first_name} on dater.com`} />
+          <meta property="og:url" content={`${APP_URL}/${router.asPath}`}/>
+           <link rel="canonical" href={`${APP_URL}/${router.asPath}`} />
         </Head>
         <div className="container main-profile bg-white">
             <div className="row no-gutters ">

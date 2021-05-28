@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import * as Imports from 'components/Imports';
 export default function Welcome({user, setShow}) {
     
@@ -9,12 +10,24 @@ export default function Welcome({user, setShow}) {
       cookies.remove('info', {path: '/'});
       setShow(false) 
     }
+
+      if(typeof window !== 'undefined'){
+        const modal = document.querySelector(".welcome-dialog");
+       window.addEventListener('click', (e) => {
+       if(e.target === modal){
+        cookies.remove('info', {path: '/'});
+        setShow(false)
+       }
+       })
+        }
+    
+
     return (
     <div className={`welcome-dialog `}>
     <div className="card w3-card-2">
       <div className="card-header">
         <h3 className="card-title text-center">Welcome {first_name}</h3>
-        <button type="button" className="close text-dark" onClick={handleClose}>
+        <button type="button" className="close" onClick={handleClose}>
           <span aria-hidden="true">×</span>
         </button>
       </div>
@@ -32,6 +45,10 @@ export default function Welcome({user, setShow}) {
         Best of luck in your search,
         Your friends at Dater.com
         </p>
+        <br />
+        <Link href={`/profile/[username]`} as={`/profile/${user?.username}`}>
+          <a className="btn btn-primary p-2 mb-2 mr-auto ml-auto w-50" onClick={handleClose}>View profile</a>
+        </Link>
       </div>
     </div>
     {/* /.modal-content */}

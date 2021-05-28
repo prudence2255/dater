@@ -65,7 +65,7 @@ const dispatch = A.useDispatch();
       {/* Notifications Dropdown Menu */}
       <li className="nav-item dropdown">
         <a className="nav-link" data-toggle="dropdown" href="#">
-          <i className="far fa-bell" />
+          <i className="far fa-bell notify mt-1" />
           {notifications_count > 0 ? <span className="badge badge-warning navbar-badge">{notifications_count}</span> : ''}
          
         </a>

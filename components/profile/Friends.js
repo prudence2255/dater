@@ -8,7 +8,7 @@ import {friendsSelector} from 'store/slices/friendsSlice';
 export default function Friends({loading}) {
     const {status} = Imports.useSelector(Imports.loadersSelector);
     const {friends} = Imports.useSelector(friendsSelector);
-
+    const {user, authUser} = Imports.useSelector(Imports.usersSelector);
 
      const userCards = friends?.map((user, i) => (<UserCard user={user} key={i}/>))
 
@@ -24,13 +24,20 @@ export default function Friends({loading}) {
         {friends?.length === 0 && status === 'succeeded' && (
                  <div className="row no-results">
                 <div className="col-md-6 mx-auto text-center">
+                {user?.id === authUser?.id ? (
+                <div>
                 <p>Your friends list is empty!</p>
                   <Link href="/profile">
                       <a className="no-results-link">Meet new friends</a>
                   </Link>
                 </div>
+                )
+                :
+                <p>No friends</p>
+                }
                 </div>
-            )}
+                </div>
+            )}  
            <div className="friends">
               {userCards}
            </div> 

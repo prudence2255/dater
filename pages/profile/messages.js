@@ -82,6 +82,7 @@ if(Object.keys(thread).length === 0 && mid){
     setNewThreadUser(null);
 }
 }, [user?.first_name]);
+
 return (
         <Imports.Layout>
         <div className="container-fluid">
@@ -98,7 +99,7 @@ return (
             {/**
             current thread user
              */}
-            {newThreadUser && (
+            {newThreadUser && !currentThread && (
                 <div className="current-thread-user mr-auto ml-auto">
                 <div className="mx-2">
                 <img 

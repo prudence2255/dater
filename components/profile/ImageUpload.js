@@ -1,6 +1,5 @@
 import React from 'react';
 import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
 import { CameraIcon, UploadIcon } from 'components/Icons';
 import * as A from 'components/Imports';
 
@@ -33,10 +32,14 @@ export default function ImageUpload({btn}) {
 
 
   const handleSelect = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.add("zIndex");
       fileRef?.current?.click();
   }
 
   const handleSave = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.remove("zIndex");
     setLoading(true);
      cropper?.getCroppedCanvas()?.toBlob((blob) => {
       const formData = new FormData();
@@ -57,6 +60,8 @@ export default function ImageUpload({btn}) {
 
   
   const handleClose = () => {
+    const sidebar = document.querySelector(".main-sidebar");
+    sidebar?.classList.remove("zIndex");
     setShowModal(false)
   }
 
@@ -76,12 +81,11 @@ export default function ImageUpload({btn}) {
       <div className="w3-modal-content w3-animate-zoom">
        <Cropper
           initialAspectRatio={1}
+          autoCrop={false}
           preview=".img-preview"
           src={image}
-         viewMode={1}
+         viewMode={2}
           guides={true}
-          minCropBoxHeight={10}
-          minCropBoxWidth={10}
           background={false}
           responsive={true}
           autoCropArea={1}
