@@ -128,10 +128,7 @@ return (
              </div>
             <div className="messages-container">
                 <div className="message-list w3-card">
-               {threadWithMessages}
-                </div>
-
-                {threads?.length === 0 && status === 'succeeded' && (
+                 {threads?.length === 0 && status === 'succeeded' && (
                  <div className="row no-results">
                 <div className="col-md-6 mx-auto text-center">
                   <p>You don't have any messages! meet friends and start chatting
@@ -142,7 +139,9 @@ return (
                 </div>
                 </div>
                 )}
-
+                
+               {threadWithMessages}
+                </div>
                 <div className={`message-body ${preview ? 'add-z-index': ''}
                 ${showMessages ? 'show-message-modal': ''}`}>
                    <MessageBody thread={thread} setShowMessages={setShowMessages}
