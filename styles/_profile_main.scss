@@ -1,154 +1,165 @@
+.main-profile {
+  min-height: 500px;
 
-.main-profile{
-    min-height: 500px;
-
-    .visitor-actions-panel{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .visitor-actions-panel div{
-        margin: 5px 20px;
-    }
-
-    .visitor-actions-panel span{
-        padding: 5px;
-        background-color: $gray-200;
-        border: 1px solid $gray-400;
-        position: relative;
-        top: 10px;
-    }
-
-    .visitor-actions-panel button{
-     
-      font-size: 30px;
-      color: $primary;  
-    }
-
-    .visitor-actions-panel button:hover{
-        color: $gray-500;
-    }
-
-    .visitor-actions-panel button.liked{
-        color:  #e83e8c!important;
-    }
-
-   .nav-tabs a{
-        color: $gray-800!important;
-        font-weight: bold;
-    }
-
-    .nav-tabs .active{
-        background-color: white!important;
-    }
-
- .profile-info{
-        padding-left: 25px;
-        padding-right: 10px;
-    }
-
- .profile-info small{
-     margin-bottom: 5px;
- }   
-    .img .profile-info-pic{
-        height: 350px;
-    }
-
-    .basic-info{
-        border-right: 1px solid $gray-400;
-    }
-    .profile-info-card .card-body{
-        display: flex;
-        justify-content: space-between;
-        background-color: $primary;
-        color: $gray-200;
-        font-size: 25px;
-        font-weight: 800;
-        text-align: center;
-    }
-
-    .brief-profile{
-        font-size: 18px;
-        color: $gray-600;
-    }
-
-    .tabs{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        font-size: 18px;
-        font-weight: 800;
-        margin: 30px 0px;
-        border-top: 2px solid $gray-400;
-        border-bottom: 2px solid $gray-400;
-    }
-
-
-    .info-list .value, .info-list .label{
-        margin-bottom: 30px;
-    }
-
-    .info-list .label{
-        font-weight: 800;
-    }
-
-    .info-list .value{
-        color: $gray-600;
-    }
-
-  .summary-profile{
-      color: $gray-700;
+  .visitor-actions-panel {
+    display: flex;
+    flex-direction: row;
   }
 
+  .visitor-actions-panel div {
+    margin: 5px 20px;
+  }
 
-      .active-btn{
-          border-bottom: 3px solid $primary;
-          color: black!important;
-      }
+  .visitor-actions-panel span {
+    padding: 5px;
+    background-color: $gray-200;
+    border: 1px solid $gray-400;
+    position: relative;
+    top: 10px;
+  }
 
+  .visitor-actions-panel button {
+    font-size: 30px;
+    color: $primary;
+  }
 
-    .edit-profile-btn{
-         text-align: center;
- }
+  .visitor-actions-panel button:hover {
+    color: $gray-500;
+  }
 
-      .edit-profile-btn a{
-          color: $gray-200;
-          background-color: $primary;
-          padding: 6px;
-          width: 100px;
-          display: inline-block;
-      }
+  .visitor-actions-panel button.liked {
+    color: #e83e8c !important;
+  }
 
-      .edit-profile-btn a:hover{
-       text-decoration: none;
-       color: $gray-200!important;
-       background-color: $gray-700;
+  .nav-tabs a {
+    color: $gray-800 !important;
+    font-weight: bold;
+  }
+
+  .nav-tabs .active {
+    background-color: white !important;
+  }
+
+  .profile-info {
+    padding-left: 25px;
+    padding-right: 10px;
+  }
+
+  .profile-info small {
+    margin-bottom: 5px;
+  }
+  .img .profile-info-pic {
+    height: 200px;
+  }
+
+  .basic-info {
+    border-right: 1px solid $gray-400;
+  }
+  .profile-info-card .card-body {
+    display: flex;
+    justify-content: space-between;
+    background-color: $primary;
+    color: $gray-200;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .brief-profile {
+    font-size: 18px;
+    color: $gray-600;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    font-size: 18px;
+    font-weight: 800;
+    margin: 30px 0px;
+    border-top: 2px solid $gray-400;
+    border-bottom: 2px solid $gray-400;
+  }
+
+  .info-list .value,
+  .info-list .label {
+    margin-bottom: 30px;
+  }
+
+  .info-list .label {
+    font-weight: 800;
+  }
+
+  .info-list .value {
+    color: $gray-600;
+  }
+
+  .summary-profile {
+    color: $gray-700;
+  }
+
+  .active-btn {
+    border-bottom: 3px solid $primary;
+    color: black !important;
+  }
+
+  .edit-profile-btn {
+    text-align: center;
+  }
+
+  .edit-profile-btn a {
+    color: $gray-200;
+    background-color: $primary;
+    padding: 6px;
+    width: 100px;
+    display: inline-block;
+  }
+
+  .edit-profile-btn a:hover {
+    text-decoration: none;
+    color: $gray-200 !important;
+    background-color: $gray-700;
+  }
+
+  .upload-photo-btn {
+    background-color: $primary;
+    color: $gray-200;
+    padding: 10px;
+    margin-top: 30px;
+  }
+
+  .photos,
+  .friends {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .photos .photo {
+    width: 150px;
+    margin: 15px;
+  }
+
+  .status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .user-active {
+    background-color: $green;
+  }
+
+  .not-active {
+    background-color: $gray-600;
+  }
+
+  @media (max-width: 768px) {
+    .info-list .label {
+      margin-bottom: 0px;
     }
-
-    .upload-photo-btn{
-        background-color: $primary;
-        color: $gray-200;
-        padding: 10px;
-        margin-top: 30px;
-    }
-
-    .photos, .friends{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-
-    .photos .photo{
-        width: 150px;
-        margin: 15px;
-    }
-
-
-    @media(max-width: 768px){
-        .info-list .label{
-            margin-bottom: 0px;
-        }
-    }
+  }
 }

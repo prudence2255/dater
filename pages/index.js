@@ -1,80 +1,50 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import Home from 'components/public/Home';
-import Login from 'components/profile/Login';
-import * as imports from 'components/Imports';
-import Notifications from 'react-notify-toast';
-import { useRouter } from 'next/router';
-
-
+import React from "react";
+import Head from "next/head";
+import Home from "components/public/Home";
+import Footer from "components/public/Footer";
+import * as imports from "components/Imports";
+import { useRouter } from "next/router";
+import Navbar from "../components/public/Navbar";
 
 const index = () => {
-  const [loginModal, setLoginModal] = React.useState();
-  const {errors} = imports.useSelector(imports.errorsSelector);
-  const {loading} = imports.useSelector(imports.loadersSelector);
- 
   const APP_URL = process.env.APP_URL;
 
   const cookies = new imports.Cookies();
   const router = useRouter();
+
   React.useEffect(() => {
-    if(cookies.get("token")){
-      router.push('/profile');
+    if (cookies.get("token")) {
+      router.push("/profile");
     }
-  }, [])
+  }, []);
   return (
     <div className="home-container">
-    <Notifications options={{zIndex: 200, top: '50px'}}/>
-    {loading && <imports.SpinLoader loading={loading}/>} 
-      {errors && <imports.ShowError />}
       <Head>
-        <title>dater.com</title>
-        <meta property="og:title" content="A Social Network And Dating Site For Live Chatting 
-          And Finding New Friends" />
-          <meta name="og:description" content="
+        <title>funconnect.net</title>
+        <meta
+          property="og:title"
+          content="A Social Network And Dating Site For Live Chatting 
+          And Finding New Friends"
+        />
+        <meta
+          name="og:description"
+          content="
          The Best Social Network And Dating Site For Live Chatting 
           And Finding New Friends. Virtually Meet Thousands Of Like-Minded Singles And Connect At Lightning Speed.
-          " />
-           <meta name="og:image" content="/home-img.jpg" />
-           <meta property="og:url" content={`${APP_URL}/${router.asPath}`}/>
-           <link rel="canonical" href={`${APP_URL}/${router.asPath}`} />
+          "
+        />
+        <meta name="og:image" content="/home-img.jpg" />
+        <meta property="og:url" content={`${APP_URL}/${router.asPath}`} />
+        <link rel="canonical" href={`${APP_URL}/${router.asPath}`} />
         <link rel="icon" href="/dater-fav-ico.png" />
       </Head>
-      <div className="home-header w3-card-4">
-      <Login loginModal={loginModal} setLoginModal={setLoginModal}/>
-          <div className="container">
-            <nav className="home-nav-items">
-            <div className="dater-logo">
-              <Link href="/">
-                <a>
-                  <img src="/dater-fav-ico.png" alt="Dater.com"
-                    className="img-fluid img-circle" width="40" height="40"
-                  />
-                </a>
-              </Link>
-            </div>
-             <div>
-             <span>Already a member?</span>
-             </div>
-            <div>
-            <button className="dater-login-btn" title="login"
-            onClick={() => setLoginModal(true)}
-            >LOG IN</button>
-            </div>
-            </nav>
-          </div>
-      </div>
-        <main className="home-main-content">
-          
-            <Home />
-
-        </main>
-      <footer>
-        
-      </footer>
+      <Navbar />
+      <main className="home-main-content">
+        <Home />
+      </main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default index;

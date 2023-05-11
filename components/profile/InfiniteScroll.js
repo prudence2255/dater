@@ -1,23 +1,26 @@
-import React from 'react';
+import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {SpinnerLoader} from 'components/Loaders';
+import { SpinnerLoader } from "components/Loaders";
 
-export default function InfiniteScroller({dataLength, fetchMore, hasMore, items}) {
-    return (
-        <InfiniteScroll
-          dataLength={dataLength}
-          next={fetchMore}
-          hasMore={hasMore}
-          loader={items?.length >= 10 && <SpinnerLoader /> }
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
-        >
-        <div className="scroll-container">
-        {items}
-        </div>
-        </InfiniteScroll>
-    )
+export default function InfiniteScroller({
+  dataLength,
+  fetchMore,
+  hasMore,
+  items,
+}) {
+  return (
+    <InfiniteScroll
+      dataLength={dataLength}
+      next={fetchMore}
+      hasMore={hasMore}
+      loader={items?.length > 10 && <SpinnerLoader />}
+      endMessage={
+        <p style={{ textAlign: "center" }}>
+          <b>Yay! You have seen it all</b>
+        </p>
+      }
+    >
+      <div className="scroll-container">{items}</div>
+    </InfiniteScroll>
+  );
 }

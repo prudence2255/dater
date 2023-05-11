@@ -1,0 +1,26 @@
+.best-matches {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters-btn {
+  color: $primary;
+
+  span {
+    color: $gray-200;
+    margin-left: 6px;
+  }
+}
+
+.feed {
+  .show-filters-modal {
+    display: block;
+  }
+  .w3-modal-content {
+    max-width: 400px;
+  }
+
+  .card-header {
+    border-top: 4px solid $primary;
+  }
+}
