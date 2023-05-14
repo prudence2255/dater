@@ -3,7 +3,8 @@ const httpServer = require("http").createServer(app);
 const origin = "https://funconnect.net";
 
 //const origin =  "http://localhost:3000";;
-
+console.log(process.env.NODE_ENV);
+console.log(origin);
 const io = require("socket.io")(httpServer, {
   cors: {
     origin: origin,
