@@ -49,7 +49,7 @@ function Messages() {
   /**
    * real time messaging
    */
-  const socket = io("http://191.96.53.2:8005");
+  const socket = io("https://191.96.53.2:8005");
 
   socket.on("connect", function () {
     socket.emit("user_connected", authUser?.id);
