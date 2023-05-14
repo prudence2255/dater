@@ -4,14 +4,16 @@ const origin = process.env.NODE_ENV
   ? "https://funconnect.net"
   : "http://localhost:3000";
 
+const host = process.env.NODE_ENV ? "191.96.53.2" : "127.0.0.1";
+
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "*",
+    origin: origin,
     methods: ["GET", "POST"],
   },
 });
 
-httpServer.listen(8005, "0.0.0.0", () => {
+httpServer.listen(8005, host, () => {
   console.log("listening to port 8005");
 });
 

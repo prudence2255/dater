@@ -49,7 +49,8 @@ function Messages() {
   /**
    * real time messaging
    */
-  const socket = io("http://0.0.0.0:8005");
+  const host = process.env.NODE_ENV ? "191.96.53.2" : "127.0.0.1";
+  const socket = io(`http://${host}:8005`);
 
   socket.on("connect", function () {
     socket.emit("user_connected", authUser?.id);
