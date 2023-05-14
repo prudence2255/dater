@@ -10,6 +10,7 @@ const io = require("socket.io")(httpServer, {
   },
 });
 
+httpServer.address("0.0.0.0");
 httpServer.listen(8005, () => {
   console.log("listening to port 8005");
 });
