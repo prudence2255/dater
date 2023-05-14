@@ -11,7 +11,7 @@ const io = require("socket.io")(httpServer, {
   },
 });
 
-httpServer.listen(8005, () => {
+httpServer.listen(8005, "0.0.0.0", () => {
   console.log("listening to port 8005");
 });
 
