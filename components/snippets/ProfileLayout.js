@@ -1,11 +1,10 @@
-import React from 'react';
-import Head from 'next/head';
-import TestNav from './TestNav';
-import 'admin-lte/plugins/fontawesome-free/css/all.min.css';
-import 'admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
-import 'admin-lte/dist/css/adminlte.min.css';
-import TestSidebar from './TestSidebar';
-
+import React from "react";
+import Head from "next/head";
+import TestNav from "./TestNav";
+import "admin-lte/plugins/fontawesome-free/css/all.min.css";
+import "admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css";
+import "admin-lte/dist/css/adminlte.min.css";
+import TestSidebar from "./TestSidebar";
 
 export default function ProfileLayout({ children }) {
   return (
@@ -20,7 +19,13 @@ export default function ProfileLayout({ children }) {
         <div className="wrapper">
           {/* Preloader */}
           <div className="preloader flex-column justify-content-center align-items-center">
-            <img className="animation__wobble" src="/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height={60} width={60} />
+            <img
+              className="animation__wobble"
+              src="/dist/img/AdminLTELogo.png"
+              alt="AdminLTELogo"
+              height={60}
+              width={60}
+            />
           </div>
           <TestNav />
           <TestSidebar />
@@ -32,21 +37,25 @@ export default function ProfileLayout({ children }) {
                 <div className="row mb-2">
                   <div className="col-sm-6">
                     <h1 className="m-0">Dashboard v2</h1>
-                  </div>{/* /.col */}
+                  </div>
+                  {/* /.col */}
                   <div className="col-sm-6">
                     <ol className="breadcrumb float-sm-right">
-                      <li className="breadcrumb-item"><a href="#">Home</a></li>
+                      <li className="breadcrumb-item">
+                        <a href="#">Home</a>
+                      </li>
                       <li className="breadcrumb-item active">Dashboard v2</li>
                     </ol>
-                  </div>{/* /.col */}
-                </div>{/* /.row */}
-              </div>{/* /.container-fluid */}
+                  </div>
+                  {/* /.col */}
+                </div>
+                {/* /.row */}
+              </div>
+              {/* /.container-fluid */}
             </div>
             {/* /.content-header */}
             {/* Main content */}
-            <section className="content">
-
-            </section>
+            <section className="content"></section>
             {/* /.content */}
           </div>
           {/* /.content-wrapper */}
@@ -56,11 +65,64 @@ export default function ProfileLayout({ children }) {
           </aside>
           {/* /.control-sidebar */}
           {/* Main Footer */}
-          <footer className="main-footer">
-
-          </footer>
+          <footer className="main-footer"></footer>
         </div>
       </div>
     </>
-  )
+  );
 }
+
+// {
+//   "apps": [{
+//       "name": "queues",
+//       "script": "artisan",
+//       "args": ["queue:work", "--tries=5", "--sleep=1"],
+//       "instances": "1",
+//       "max_restarts": 2,
+//       "interpreter" : "php",
+//       "watch": true,
+//       "error_file": "log/err.log",
+//       "out_file": "log/out.log",
+//       "log_file": "log/combined.log",
+//       "time": true
+//   }
+// ]
+// }
+
+// {
+//   "apps": [
+//   {
+//     "name": "nextjs",
+//     "script": "yarn",
+//     "args": ["start"],
+//     "instances": "1",
+//     "max_restarts": 2,
+//     "watch": true,
+//     "error_file": "log/err.log",
+//     "out_file": "log/out.log",
+//     "log_file": "log/combined.log",
+//     "time": true,
+//     env: {
+//       NODE_ENV: 'production',
+//     },
+// },
+// {
+//   "name": "socket.io",
+//   "script": "node",
+//   "args": ["server.js"],
+//   "instances": "1",
+//   "max_restarts": 2,
+//   "watch": true,
+//   "error_file": "log/err.log",
+//   "out_file": "log/out.log",
+//   "log_file": "log/combined.log",
+//   "time": true,
+//   env: {
+//     PORT: 8005,
+//     NODE_ENV: "production",
+//     SSL_KEY: "/etc/ssl/virtualmin/16838452141603023/ssl.key",
+//     SSL_CRT: "/etc/ssl/virtualmin/16838452141603023/ssl.cert",
+//   },
+// }
+// ]
+// }
