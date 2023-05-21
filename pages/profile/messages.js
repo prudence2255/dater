@@ -49,8 +49,12 @@ function Messages() {
   /**
    * real time messaging
    */
-  const host = process.env.NODE_ENV ? "funconnect.net" : "127.0.0.1";
-  const socket = io(`https://${host}:8005`);
+  const host =
+    process.env.NODE_ENV == "production"
+      ? "https://funconnect.net:8005"
+      : "http://127.0.0.1:8005";
+
+  const socket = io(host);
 
   socket.on("connect", function () {
     socket.emit("user_connected", authUser?.id);
@@ -69,6 +73,10 @@ function Messages() {
     } else {
       dispatch(addRealTimeThread(message));
     }
+    scrollRef?.current?.scroll({
+      top: scrollRef?.current?.scrollHeight,
+      behavior: "instant",
+    });
   });
 
   /**
@@ -101,6 +109,13 @@ function Messages() {
       });
     }
   }, [scroll]);
+
+  React.useEffect(() => {
+    scrollRef?.current?.scroll({
+      top: scrollRef?.current?.scrollHeight,
+      behavior: "instant",
+    });
+  }, []);
 
   return (
     <Imports.Layout>

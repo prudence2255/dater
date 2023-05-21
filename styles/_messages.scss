@@ -1,444 +1,427 @@
+.messages {
+  .message-header {
+    height: 50px;
+    width: 79%;
+    padding: 5px 0px;
+    background-color: white;
+    position: fixed;
+    top: 60px;
+    right: 1%;
+    z-index: 1;
+    border-bottom: 3px solid $primary;
+    // display: none;
+  }
 
-.messages{
+  .message-header button {
+    display: none;
+  }
 
-    .message-header{
-        height: 50px;
-        width: 79%;
-        padding: 5px 0px;
-        background-color: white;
-        position: fixed;
-        top: 60px;
-        right: 1%;
-        z-index: 1;
-        border-bottom: 3px solid $primary;
-       // display: none;
-        }
+  .message-header .current-thread-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .message-header button{
-          display: none;
-      }
+  .message-header .current-thread-user .message-header-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
 
-    .message-header .current-thread-user{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
+  .messages-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .message-header .current-thread-user .message-header-img{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-      }
+  .message-list {
+    width: 25%;
+    left: 20%;
+    height: 100%;
+    position: fixed;
+    top: 60px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 70px;
+    padding-bottom: 150px;
+    background-color: $dark;
+  }
 
+  .message-body {
+    padding: 15px;
+    width: 54%;
+    height: 100%;
+    top: 60px;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    right: 1%;
+    padding-top: 70px;
+    padding-bottom: 150px;
+  }
 
-    .messages-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      
-    }
+  .message-card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 70px;
+  }
 
-    .message-list{
-        width: 25%;
-        left: 20%;
-        height: 100%;
-        position: fixed;
-        top: 60px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        padding-top: 70px;
-        padding-bottom: 150px;
-        background-color: $dark;
-    }
+  .message-card:hover {
+    cursor: pointer;
+    background-color: $gray-600;
+  }
 
-    .message-body{
-        padding: 15px;
-        width: 54%;
-        height: 100%;
-        top: 60px;
-        position: fixed;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        background-color: white;
-        right: 1%;
-        padding-top: 70px;
-        padding-bottom: 150px;
-    }
+  .message-card-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
 
-    .message-card{
-        display: flex;
-        flex-direction: row;
-        padding: 10px;
-        height: 70px;
-    }
+  .message-card .no-read {
+    font-weight: bold;
+  }
 
-    .message-card:hover{
-        cursor: pointer;
-        background-color: $gray-600;
-    }
-    
-    .message-card-img{
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
+  .message-card .last-message-el {
+    margin: 0px 15px;
+  }
 
-    }
+  .message-card .time {
+    position: absolute;
+    right: 10px;
+  }
 
-   .message-card .no-read{
-        font-weight: bold;
-    }
+  .message-card:first-child {
+    border-top: 1px solid $gray-400;
+  }
 
-   .message-card .last-message-el{
-        margin: 0px  15px;
-    }
+  .message-card .first-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-    .message-card .time{
-        position: absolute;
-        right: 10px;
-    }
-
-    .message-card:first-child{
-        border-top: 1px solid $gray-400;
-    }
-    
- .message-card .first-name{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-.message-card .count{
+  .message-card .count {
     padding: 0 5px;
     background-color: $blue;
     border-radius: 50%;
     color: white;
-}
+  }
 
-   .message-list::-webkit-scrollbar, .message-body::-webkit-scrollbar{
-        width: 8px;
-        background-color: inherit;
-        }
-        
-     .message-list::-webkit-scrollbar-thumb, .message-body::-webkit-scrollbar-thumb{
-            background-color: $gray-300;
-            border-radius: 0 8px 8px 0;
-            min-height: 50px;
-        }
+  .message-list::-webkit-scrollbar,
+  .message-body::-webkit-scrollbar {
+    width: 8px;
+    background-color: inherit;
+  }
 
-      .message-text{
-         position: relative;
-         margin: 10px 0px;
-         padding: 5px;
-      }
-      
-     .me{
-        text-align: right;
-        padding-left: 50px;
-     }
-        .them{
-         text-align: left;
-         padding-right: 50px;
-      }
-       
-    .me .message{
-        background-color: $purple;
-        color: white;
-      }
+  .message-list::-webkit-scrollbar-thumb,
+  .message-body::-webkit-scrollbar-thumb {
+    background-color: $gray-300;
+    border-radius: 0 8px 8px 0;
+    min-height: 50px;
+  }
 
-    .them .message{
-        background-color: $gray-200;
-        color: black;
+  .message-text {
+    position: relative;
+    margin: 10px 0px;
+    padding: 5px;
+  }
+
+  .me {
+    text-align: right;
+    padding-left: 50px;
+  }
+  .them {
+    text-align: left;
+    padding-right: 50px;
+  }
+
+  .me .message {
+    background-color: $purple;
+    color: white;
+  }
+
+  .them .message {
+    background-color: $gray-200;
+    color: black;
+  }
+
+  .message {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .active-thread {
+    background-color: $gray-600;
+  }
+
+  .message-input-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    background-color: $gray-200;
+    z-index: 2;
+    width: 54%;
+    right: 1%;
+  }
+
+  .show-message-input {
+    display: block;
+  }
+
+  .message-input-contents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .message-input-contents div {
+    margin: 0px 7px;
+  }
+
+  .message-input-box {
+    width: 80%;
+  }
+
+  .message-input {
+    height: 50px;
+    width: 100%;
+    margin: 0px 10px;
+    max-height: 100px;
+    border-radius: 50px;
+    background-color: white;
+    overflow: hidden;
+    padding-top: 10px;
+    resize: none;
+    display: block;
+  }
+
+  .message-input:focus {
+    outline: none;
+  }
+
+  .send-btn {
+    color: $primary;
+  }
+
+  .file-btn {
+    transform: rotate(90deg);
+  }
+
+  .emoji-box {
+    display: none;
+    z-index: 3;
+  }
+
+  .show-emoji-box {
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    z-index: 300;
+  }
+
+  .message-text .message-img,
+  .message-text .message-iframe,
+  .message-text .message-video {
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .message-text .message-img {
+    cursor: pointer;
+  }
+
+  .message-text .modal-img {
+    width: 100%;
+  }
+
+  .add-z-index {
+    z-index: 50000;
+  }
+
+  .message-text .download-btn {
+    background-color: green;
+    color: $gray-100;
+    display: none;
+    position: absolute;
+    left: 80%;
+  }
+
+  .message-text .img-el {
+    position: relative;
+  }
+
+  .message-text .img-el:hover .download-btn {
+    display: inline;
+    color: $gray-100;
+  }
+
+  @media (max-width: 992px) {
+    .message-list {
+      left: auto;
+      right: auto;
+      padding-top: 70px;
+      width: 60%;
     }
-    
-     .message{
-         display: inline-block;
-         border-radius: 10px;
-         padding: 5px;
-     }
 
-    .active-thread{
-        background-color: $gray-600;
-     }
+    // .show-message-header{
+    //          position: absolute;
+    //         z-index: 9999;
+    //         top: 0;
+    //         left: 0;
+    //         right: 0;
+    //     }
 
-     .message-input-container{
-         display: none;
-         position: fixed;
-         bottom: 0;
-         padding: 10px;
-         background-color: $gray-200;
-         z-index: 2;
-         width: 54%;
-         right: 1%;
-     }
+    .message-header {
+      z-index: 1;
+      width: 100%;
+      right: 0;
+      top: 50px;
+    }
 
-    .show-message-input{
-            display: block; 
-         }
+    .message-text .message-img,
+    .message-text .message-iframe,
+    .message-text .message-video {
+      height: 150px;
+    }
 
-    .message-input-contents{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 100%;
-            text-align: center;
-        }
+    .show-message-header button {
+      display: flex;
+    }
 
-        .message-input-contents div{
-            margin: 0px 7px;
-        }
+    .message-body {
+      display: none;
+    }
 
-        .message-input-box{
-            width: 80%
-        }
+    .show-message-modal {
+      display: block;
+      z-index: 1;
+      top: 100px;
+      width: 80%;
+      bottom: 0;
+      left: 10%;
+      padding-top: 30px;
+      padding-bottom: 200px;
+    }
 
-        .message-input{
-            height: 50px;
-            width: 100%; 
-            margin: 0px 10px;
-            max-height: 100px;
-            border-radius: 50px;
-            background-color: white;
-            overflow: hidden;
-            padding-top: 10px;
-            resize: none;
-            display: block;
+    .add-z-index {
+      z-index: 50000;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
 
-        }
+    .show-message-input {
+      width: 80%;
+      left: 10%;
+    }
 
-        .message-input:focus{
-            outline: none;
-        }
+    .img-prev-modal .close {
+      top: 10px;
+      left: 10px;
+    }
+  }
 
-        .send-btn{
-            color: $primary;
-        }
+  @media (max-width: 576px) {
+    .message-list,
+    .message-body,
+    .message-input-container {
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
 
-        .file-btn{
-            transform: rotate(90deg);
-        }
+  @media (max-width: 768px) {
+    .message-body {
+      padding-bottom: 200px;
+    }
+  }
+  .file-upload {
+    .show-modal {
+      display: block;
+      z-index: 2;
+    }
 
-        .emoji-box{
-            display: none;
-            z-index: 3;
-        }
+    .w3-modal-content {
+      color: $gray-800;
+      width: 40%;
+    }
 
-        .show-emoji-box{
-            display: block;
-            position: absolute;
-            bottom: 80px;
-            z-index: 300;
-        }
+    .action-btns {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
 
-       
-        .message-text .message-img,
-        .message-text .message-iframe,
-        .message-text .message-video
-        {
-             height: 200px;
-             border-radius: 10px;
-         }
+    .save-btn {
+      background-color: $primary;
+      color: $gray-100;
+      border-radius: 5px;
+      padding: 6px;
+      width: 100px;
+      font-weight: 800;
+      margin-right: 50px;
+      text-transform: uppercase;
+    }
 
-         .message-text .message-img
-         {
-            cursor: pointer; 
-          }
+    .save-btn:hover {
+      background-color: $gray-700;
+      color: $gray-100;
+    }
 
-          .message-text .modal-img{
-              width: 100%;
-          }
+    .cancel-btn {
+      background-color: $gray-300;
+      color: $gray-800;
+      border-radius: 6px;
+      padding: 5px;
+      width: 100px;
+      text-transform: uppercase;
+    }
 
-         
+    .cancel-btn:hover {
+      color: $gray-800 !important;
+    }
 
-          .add-z-index{
-              z-index: 50000;
-          }
+    .file-upload-btn {
+      padding: 5px 0px;
+      font-size: 20px;
+      color: $gray-200;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+    }
 
+    .file-upload-btn small {
+      font-size: small;
+    }
 
-         .message-text .download-btn{
-            background-color: green;
-            color: $gray-100;
-            display: none;
-            position: absolute;
-            left: 80%;
-          }
+    .message-img,
+    .message-iframe,
+    .message-video {
+      width: 100%;
+      max-height: 400px;
+    }
 
-          .message-text .img-el{
-            position: relative;
-          }
+    .download-btn {
+      display: none;
+    }
 
-         .message-text .img-el:hover .download-btn{
-            display: inline;
-            color: $gray-100;
-          }
+    @media (max-width: 992px) {
+      .w3-modal-content {
+        width: 60%;
+      }
+    }
 
-
-        @media(max-width: 992px){
-            .message-list{ 
-               left: auto;
-               right: auto;
-               padding-top: 70px;
-               width: 60%;
-            }
-           
-        // .show-message-header{
-        //          position: absolute;
-        //         z-index: 9999;
-        //         top: 0;
-        //         left: 0;
-        //         right: 0;
-        //     }
-
-
-        .message-header{
-               z-index: 1;
-               width: 100%;
-               right: 0;
-               top: 50px;
-           } 
-
-        .message-text .message-img,
-        .message-text .message-iframe,
-        .message-text .message-video
-        {
-             height: 150px;
-         }
-
-         .show-message-header button{
-                display: flex;
-         }
-
-         .message-body{
-                display: none;
-            }
-
-        .show-message-modal{
-                display: block;
-                z-index: 1;
-                top: 100px;
-                width: 80%;
-                bottom: 0;
-                left: 10%;
-                padding-top: 30px;
-            }
-
-    
-            .add-z-index{
-                z-index: 50000;
-                bottom: 0;
-                top: 0;
-                right: 0;
-                left: 0;
-                width: 100%;
-            }
-
-            .show-message-input{
-               width: 80%;
-               left: 10%;
-             }
-   
-
-           .img-prev-modal .close{
-            top: 10px;
-            left: 10px;
-          }
-         
-        }
-
-        
-        @media(max-width: 576px){
-            .message-list, .message-body, .message-input-container{ 
-               left: 0;
-               right: 0;
-               width: 100%;
-            }
-        }
-
-
-        .file-upload{ 
-            .show-modal{
-                 display: block;
-                 z-index: 2; 
-             }
-         
-             .w3-modal-content{
-                 color: $gray-800;
-                 width: 40%;
-             }
-         
-         
-             .action-btns{
-                 display: flex;
-                 justify-content: flex-end;
-                padding: 10px;
-         
-             }
-         
-             .save-btn{
-                 background-color: $primary;
-                 color: $gray-100;
-                 border-radius: 5px;
-                 padding: 6px;
-                 width: 100px;
-                 font-weight: 800;
-                 margin-right: 50px;
-                 text-transform: uppercase;
-             }
-         
-             .save-btn:hover{
-                 background-color: $gray-700;
-                 color: $gray-100;
-             }
-         
-             .cancel-btn{
-                 background-color: $gray-300;
-                 color: $gray-800;
-                 border-radius: 6px;
-                 padding: 5px;
-                 width: 100px;
-                 text-transform: uppercase;
-             }
-         
-             .cancel-btn:hover{
-                 color: $gray-800!important;
-             }
-         
-             .file-upload-btn{
-                 padding: 5px 0px;
-                 font-size: 20px;
-                 color: $gray-200;
-                 background-color: rgba(0, 0, 0,0.5);
-                 width: 100%;
-             }
-         
-             .file-upload-btn small{
-                 font-size: small;
-             }
-         
-             .message-img,
-            .message-iframe,
-             .message-video
-             {
-                  width: 100%;
-                  max-height: 400px;
-              }
-              
-              .download-btn{
-                  display: none;
-              }
-           
-         
-             @media(max-width: 992px){
-                 .w3-modal-content{
-                     width: 60%;
-                 }
-             }
-
-             @media(max-width: 576px){
-                .w3-modal-content{
-                    width: 80%;
-                }
-            }
-         }     
-        
+    @media (max-width: 576px) {
+      .w3-modal-content {
+        width: 80%;
+      }
+    }
+  }
 }
-
-

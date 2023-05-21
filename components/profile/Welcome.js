@@ -46,7 +46,7 @@ export default function Welcome({ user, setShow }) {
             If there's anything we can do to make your experience more valuable,
             we want to know. Don't hesitate to contact Us with any questions,
             concerns or suggestions you may have. Best of luck in your search,
-            Your friends at Dater.com
+            Your friends at FunConnect.net
           </p>
           <br />
           <Link href={`/profile/[username]`} as={`/profile/${user?.username}`}>

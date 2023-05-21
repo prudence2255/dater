@@ -153,7 +153,7 @@ export default function Home() {
                       render={({ onChange }) => (
                         <DatePicker
                           dateFormat="yyyy-MM-dd"
-                          minDate={ageMin}
+                          maxDate={ageMin}
                           showIcon
                           selected={startDate}
                           onChange={(date) => {

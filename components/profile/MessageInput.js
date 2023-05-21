@@ -4,7 +4,7 @@ import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import FileUpload from "components/profile/FileUpload";
 import * as Imports from "components/Imports";
-import { tempMsg, tempAddMsg } from "store/slices/messagesSlice";
+import { tempMsg, tempAddMsg, setScroll } from "store/slices/messagesSlice";
 
 export default function MessageInput({ thread, mid }) {
   const { user, authUser } = Imports.useSelector(Imports.usersSelector);
@@ -84,6 +84,7 @@ export default function MessageInput({ thread, mid }) {
         .catch((e) => e.message);
     }
     setMessage("");
+    dispatch(setScroll(true));
   };
 
   return (

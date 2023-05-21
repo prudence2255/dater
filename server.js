@@ -1,19 +1,28 @@
 const app = require("express")();
 const { readFileSync } = require("fs");
-const httpServer = require("https").createServer(
-  {
-    key: readFileSync(process.env.SSL_KEY),
-    cert: readFileSync(process.env.SSL_CERT),
-    requestCert: false,
-  },
-  app
-);
 
-const origin = process.env.NODE_ENV
-  ? "https://funconnect.net"
-  : "http://localhost:3000";
+let httpServer;
 
-const host = process.env.NODE_ENV ? "funconnect.net" : "127.0.0.1";
+if (process.env.NODE_ENV == "production") {
+  httpServer = require("https").createServer(
+    {
+      key: readFileSync(process.env.SSL_KEY),
+      cert: readFileSync(process.env.SSL_CERT),
+      requestCert: false,
+    },
+    app
+  );
+} else {
+  httpServer = require("http").createServer(app);
+}
+
+const origin =
+  process.env.NODE_ENV == "production"
+    ? "https://funconnect.net"
+    : "http://localhost:3000";
+
+const host =
+  process.env.NODE_ENV == "production" ? "funconnect.net" : "127.0.0.1";
 
 const io = require("socket.io")(httpServer, {
   cors: {

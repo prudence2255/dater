@@ -6,7 +6,7 @@ module.exports = {
     APP_URL:
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://bodyclaire.com",
+        : "https://funconnect.net",
 
     API_URL:
       process.env.NODE_ENV === "development"
