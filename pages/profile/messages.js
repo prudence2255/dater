@@ -179,7 +179,7 @@ function Messages() {
             <div className="message-list w3-card">
               {threads?.length === 0 && status === "succeeded" && (
                 <div className="row no-results">
-                  <div className="col-md-6 mx-auto text-center">
+                  <div className="col-md-8 mx-auto text-center">
                     <p>
                       You don't have any messages! meet friends and start
                       chatting

@@ -37,7 +37,7 @@ const schema = yup.object().shape({
   first_name: yup.string().required(),
   last_name: yup.string().required(),
   gender: yup.string().required(),
-  birth_date: yup.date().min(ageMin).required(),
+  birth_date: yup.date().max(ageMin).required(),
   country: yup.string().required(),
   city: yup.string().required(),
   email: yup.string().email().required(),
