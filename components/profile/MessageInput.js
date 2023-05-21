@@ -84,7 +84,7 @@ export default function MessageInput({ thread, mid }) {
         .catch((e) => e.message);
     }
     setMessage("");
-    dispatch(setScroll(true));
+    // dispatch(setScroll(true));
   };
 
   return (
