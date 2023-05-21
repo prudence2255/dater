@@ -1,4 +1,5 @@
 const app = require("express")();
+const { readFileSync } = require("fs");
 const httpServer = require("https").createServer(
   {
     key: readFileSync(process.env.SSL_KEY),
@@ -7,7 +8,7 @@ const httpServer = require("https").createServer(
   },
   app
 );
-const { readFileSync } = require("fs");
+
 const origin = process.env.NODE_ENV
   ? "https://funconnect.net"
   : "http://localhost:3000";
