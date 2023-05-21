@@ -13,7 +13,7 @@ const origin = process.env.NODE_ENV
   ? "https://funconnect.net"
   : "http://localhost:3000";
 
-const host = process.env.NODE_ENV ? "191.96.53.2" : "127.0.0.1";
+const host = process.env.NODE_ENV ? "funconnect.net" : "127.0.0.1";
 
 const io = require("socket.io")(httpServer, {
   cors: {
